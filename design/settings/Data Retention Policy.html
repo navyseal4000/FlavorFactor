@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+      --primary-color: #a4ec13;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 38px;
+      height: 22px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    input:checked+.slider {
+      background-color: var(--primary-color);
+    }
+    input:focus+.slider {
+      box-shadow: 0 0 1px var(--primary-color);
+    }
+    input:checked+.slider:before {
+      -webkit-transform: translateX(16px);
+      -ms-transform: translateX(16px);
+      transform: translateX(16px);
+    }
+    .slider.round {
+      border-radius: 34px;
+    }
+    .slider.round:before {
+      border-radius: 50%;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-50">
+<div class="relative flex size-full min-h-screen flex-col group/design-root" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="flex-grow pb-20">
+<header class="sticky top-0 z-10 bg-white shadow-sm">
+<div class="flex items-center px-4 py-3 justify-between">
+<button class="text-gray-700">
+<span class="material-symbols-outlined"> arrow_back_ios_new </span>
+</button>
+<h1 class="text-xl font-bold text-gray-900 flex-1 text-center">Data Retention Policy</h1>
+<div class="w-8"></div>
+</div>
+</header>
+<main class="p-6 space-y-6 bg-white">
+<div class="space-y-4 text-gray-700">
+<p class="text-sm">Last Updated: October 26, 2023</p>
+<p class="text-sm leading-relaxed">This policy outlines how we handle and retain your personal data to provide you with our meal tracking and personalized meal plan generation services. We are committed to ensuring your data is handled responsibly and transparently.</p>
+</div>
+<div class="space-y-4">
+<h2 class="text-lg font-semibold text-gray-900">1. Data We Collect and Retain</h2>
+<p class="text-sm text-gray-700 leading-relaxed">We collect and retain the following types of data to provide and improve our services:</p>
+<ul class="list-disc list-inside space-y-2 text-sm text-gray-700 pl-4">
+<li><strong>Account Information:</strong> Name, email address, password, and profile information.</li>
+<li><strong>Health &amp; Activity Data:</strong> Weight, height, age, gender, dietary preferences, allergies, fitness goals, and tracked meals.</li>
+<li><strong>Usage Data:</strong> App interaction data, feature usage, and device information.</li>
+</ul>
+</div>
+<div class="space-y-4">
+<h2 class="text-lg font-semibold text-gray-900">2. Data Retention Period</h2>
+<p class="text-sm text-gray-700 leading-relaxed">We retain your personal data for as long as your account is active. This allows us to provide you with a continuous experience and maintain your meal history and preferences.</p>
+<ul class="list-disc list-inside space-y-2 text-sm text-gray-700 pl-4">
+<li>If your account is inactive for a period of <strong>24 consecutive months</strong>, we may anonymize your data by removing personal identifiers.</li>
+<li>Anonymized data may be retained for statistical and research purposes to improve our services.</li>
+</ul>
+</div>
+<div class="space-y-4">
+<h2 class="text-lg font-semibold text-gray-900">3. Data Deletion</h2>
+<p class="text-sm text-gray-700 leading-relaxed">You have the right to delete your account and associated personal data at any time. You can do this through the 'Delete Your Account' option in the Privacy Settings.</p>
+<ul class="list-disc list-inside space-y-2 text-sm text-gray-700 pl-4">
+<li>When you delete your account, we will permanently and irrevocably delete your personal data from our active systems within <strong>30 days</strong>.</li>
+<li>Backup copies of your data may be retained for up to <strong>90 days</strong> in our backup archives, after which they will be permanently deleted.</li>
+</ul>
+</div>
+<div class="space-y-4">
+<h2 class="text-lg font-semibold text-gray-900">4. Policy Updates</h2>
+<p class="text-sm text-gray-700 leading-relaxed">We may update this Data Retention Policy from time to time. We will notify you of any significant changes by email or through an in-app notification.</p>
+</div>
+</main>
+</div>
+<nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200">
+<div class="flex justify-around py-2">
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-xs font-medium">Home</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<p class="text-xs font-medium">Plan</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">article</span>
+<p class="text-xs font-medium">Log</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<p class="text-xs font-medium">Coach</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-[var(--primary-color)]" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<p class="text-xs font-medium">Profile</p>
+</a>
+</div>
+</nav>
+</div>
+
+</body></html>

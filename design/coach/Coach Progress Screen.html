@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style type="text/tailwindcss">
+    :root {
+      --primary-color: #a4ec13;
+    }
+  </style>
+<style>
+    body {
+      min-height: 100dvh;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-50">
+<div class="relative flex size-full min-h-screen flex-col group/design-root" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="flex-grow pb-24">
+<header class="sticky top-0 z-10 bg-white shadow-sm">
+<div class="px-4 pt-3 pb-2">
+<h1 class="text-2xl font-bold text-gray-900 text-center">Coach</h1>
+<div class="flex justify-center gap-x-8 mt-3">
+<a class="text-gray-500 py-2" href="#">Chat</a>
+<a class="text-[var(--primary-color)] border-b-2 border-[var(--primary-color)] py-2 font-semibold" href="#">Progress/Metrics</a>
+</div>
+</div>
+</header>
+<main class="p-4 space-y-6">
+<div class="bg-white p-4 rounded-xl shadow-sm">
+<h3 class="font-bold text-lg text-gray-800 mb-3">Weight Trend</h3>
+<div class="mb-4 flex justify-between rounded-lg bg-gray-100 p-1">
+<button class="flex-1 rounded-md py-1.5 text-sm font-medium text-gray-500 transition-colors">1W</button>
+<button class="flex-1 rounded-md bg-white py-1.5 text-sm font-semibold text-[var(--primary-color)] shadow-sm transition-colors">1M</button>
+<button class="flex-1 rounded-md py-1.5 text-sm font-medium text-gray-500 transition-colors">1Y</button>
+<button class="flex-1 rounded-md py-1.5 text-sm font-medium text-gray-500 transition-colors">All</button>
+</div>
+<div class="h-48">
+<canvas id="weightChart"></canvas>
+</div>
+<div class="flex justify-between text-xs text-gray-500 mt-2">
+<span>Last 30 Days</span>
+<div class="flex items-center gap-1 text-red-500">
+<span class="material-symbols-outlined text-sm">arrow_downward</span>
+<span>2.5 lbs</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl shadow-sm">
+<h3 class="font-bold text-lg text-gray-800 mb-3">Calorie Adherence</h3>
+<div class="h-48">
+<canvas id="calorieChart"></canvas>
+</div>
+<p class="text-sm text-center text-gray-600 mt-2">Target: 2,200 kcal</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white p-4 rounded-xl shadow-sm text-center">
+<p class="text-sm text-gray-500">Avg. Daily Calories</p>
+<p class="text-2xl font-bold text-gray-800 mt-1">2,150</p>
+<p class="text-xs text-gray-400">kcal</p>
+</div>
+<div class="bg-white p-4 rounded-xl shadow-sm text-center">
+<p class="text-sm text-gray-500">Consistency Score</p>
+<p class="text-2xl font-bold text-gray-800 mt-1">88%</p>
+<p class="text-xs text-green-500">Excellent</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl shadow-sm">
+<h3 class="font-bold text-lg text-gray-800 mb-3">Macronutrient Consistency</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-sm font-medium text-gray-700">Protein (150g)</span>
+<span class="text-sm font-medium text-gray-700">95%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2.5">
+<div class="bg-blue-500 h-2.5 rounded-full" style="width: 95%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-sm font-medium text-gray-700">Carbs (250g)</span>
+<span class="text-sm font-medium text-gray-700">82%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2.5">
+<div class="bg-yellow-400 h-2.5 rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-sm font-medium text-gray-700">Fats (70g)</span>
+<span class="text-sm font-medium text-gray-700">90%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2.5">
+<div class="bg-pink-500 h-2.5 rounded-full" style="width: 90%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-lime-100/50 border border-lime-200 p-4 rounded-xl shadow-sm">
+<h3 class="font-bold text-lg text-gray-800 mb-2">Coach's Insight</h3>
+<p class="text-gray-700">"You've been incredibly consistent with your protein intake this week! This is fantastic for muscle recovery and growth. Keep up the great work. Let's aim to bring up the carb consistency a bit next week to fuel your workouts even better."</p>
+</div>
+</main>
+</div>
+<nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200">
+<div class="flex justify-around py-2">
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-xs font-medium">Home</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<p class="text-xs font-medium">Plan</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<p class="text-xs font-medium">Log</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-[var(--primary-color)]" href="#">
+<span class="material-symbols-outlined">chat</span>
+<p class="text-xs font-medium">Coach</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<p class="text-xs font-medium">Profile</p>
+</a>
+</div>
+</nav>
+</div>
+<script>
+    const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
+    // Weight Chart
+    const weightCtx = document.getElementById('weightChart').getContext('2d');
+    const weightChart = new Chart(weightCtx, {
+        type: 'line',
+        data: {
+            labels: Array.from({length: 30}, (_, i) => i + 1),
+            datasets: [{
+                label: 'Weight',
+                data: [180, 180.2, 179.8, 180.5, 179.5, 179, 178.8, 179.2, 178.5, 178.3, 178, 178.1, 177.9, 177.5, 177.6, 177.2, 177, 177.3, 176.9, 176.5, 176.8, 176.4, 176, 176.2, 175.8, 175.5, 175.6, 175.2, 175, 175.1],
+                borderColor: primaryColor,
+                backgroundColor: 'rgba(164, 236, 19, 0.1)',
+                borderWidth: 2,
+                pointRadius: 0,
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    grid: {
+                        drawBorder: false,
+                    },
+                    ticks: {
+                        padding: 10
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false,
+                    },
+                    ticks: {
+                        display: false
+                    }
+                }
+            }
+        }
+    });
+    // Calorie Chart
+    const calorieCtx = document.getElementById('calorieChart').getContext('2d');
+    const calorieChart = new Chart(calorieCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+                label: 'Daily Calories',
+                data: [2100, 2250, 2180, 2300, 2050, 2400, 2150],
+                backgroundColor: 'rgba(164, 236, 19, 0.6)',
+                borderColor: primaryColor,
+                borderWidth: 1,
+                borderRadius: 8,
+                barThickness: 12,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.raw} kcal`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                     grid: {
+                        drawBorder: false,
+                    },
+                    ticks: {
+                        padding: 10
+                    }
+                },
+                x: {
+                   grid: {
+                        display: false,
+                    },
+                     ticks: {
+                        padding: 5
+                    }
+                }
+            }
+        }
+    });
+  </script>
+
+</body></html>

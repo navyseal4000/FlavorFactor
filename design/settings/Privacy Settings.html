@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        :root {
+          --primary-color: #a4ec13;
+        }
+        .switch {
+          position: relative;
+          display: inline-block;
+          width: 38px;
+          height: 22px;
+        }
+        .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 18px;
+          width: 18px;
+          left: 2px;
+          bottom: 2px;
+          background-color: white;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        input:checked+.slider {
+          background-color: var(--primary-color);
+        }
+        input:focus+.slider {
+          box-shadow: 0 0 1px var(--primary-color);
+        }
+        input:checked+.slider:before {
+          -webkit-transform: translateX(16px);
+          -ms-transform: translateX(16px);
+          transform: translateX(16px);
+        }.slider.round {
+          border-radius: 34px;
+        }
+        .slider.round:before {
+          border-radius: 50%;
+        }
+  </style>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-white shadow-sm">
+<div class="flex items-center px-4 py-3 justify-between">
+<button class="text-gray-700">
+<span class="material-symbols-outlined"> arrow_back_ios_new </span>
+</button>
+<h1 class="text-xl font-bold text-gray-900 flex-1 text-center">Privacy Settings</h1>
+<div class="w-8"></div>
+</div>
+</header>
+<main class="p-4 space-y-6">
+<div class="space-y-2">
+<h2 class="text-sm font-semibold text-gray-500 px-4">Data Sharing</h2>
+<div class="bg-white rounded-xl shadow-sm">
+<div class="flex items-center gap-4 p-4">
+<div class="flex-grow">
+<p class="text-gray-900 text-base font-medium">Share data with third-party apps</p>
+<p class="text-gray-500 text-sm">Allow third-party health apps to access your data.</p>
+</div>
+<label class="switch">
+<input checked="" type="checkbox"/>
+<span class="slider round"></span>
+</label>
+</div>
+<hr class="border-gray-100"/>
+<div class="flex items-center gap-4 p-4">
+<div class="flex-grow">
+<p class="text-gray-900 text-base font-medium">Personalized Advertising</p>
+<p class="text-gray-500 text-sm">Allow use of your data for personalized ads.</p>
+</div>
+<label class="switch">
+<input type="checkbox"/>
+<span class="slider round"></span>
+</label>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<h2 class="text-sm font-semibold text-gray-500 px-4">Data Management</h2>
+<div class="bg-white rounded-xl shadow-sm">
+<a class="flex items-center gap-4 p-4" href="#">
+<div class="flex-grow">
+<p class="text-gray-900 text-base font-medium">Data Retention Policy</p>
+<p class="text-gray-500 text-sm">Review how we store and manage your data.</p>
+</div>
+<span class="material-symbols-outlined text-gray-400"> chevron_right </span>
+</a>
+<hr class="border-gray-100"/>
+<a class="flex items-center gap-4 p-4" href="#">
+<div class="flex-grow">
+<p class="text-gray-900 text-base font-medium">Export Your Data</p>
+<p class="text-gray-500 text-sm">Download a copy of your data.</p>
+</div>
+<span class="material-symbols-outlined text-gray-400"> chevron_right </span>
+</a>
+<hr class="border-gray-100"/>
+<a class="flex items-center gap-4 p-4" href="#">
+<div class="flex-grow">
+<p class="text-red-600 text-base font-medium">Delete Your Account</p>
+<p class="text-gray-500 text-sm">This action is permanent and cannot be undone.</p>
+</div>
+<span class="material-symbols-outlined text-gray-400"> chevron_right </span>
+</a>
+</div>
+</div>
+</main>
+</div>
+<nav class="sticky bottom-0 bg-white border-t border-gray-200">
+<div class="flex justify-around py-2">
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-xs font-medium">Home</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<p class="text-xs font-medium">Plan</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">article</span>
+<p class="text-xs font-medium">Log</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<p class="text-xs font-medium">Coach</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-[var(--primary-color)]" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<p class="text-xs font-medium">Profile</p>
+</a>
+</div>
+</nav>
+</div>
+
+</body></html>

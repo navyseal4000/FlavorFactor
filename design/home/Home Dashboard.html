@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Meal Tracker App</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        :root {
+          --primary-50: #f0fff4;
+          --primary-100: #e0ffe9;
+          --primary-200: #c1ffcf;
+          --primary-300: #93ffac;
+          --primary-400: #5efc81;
+          --primary-500: #39f05e;
+          --primary-600: #26d84a;
+          --primary-700: #1fb33d;
+          --primary-800: #1a8f34;
+          --primary-900: #16742d;
+          --primary-950: #0a4018;
+          --neutral-50: #f8fafc;
+          --neutral-100: #f1f5f9;
+          --neutral-200: #e2e8f0;
+          --neutral-300: #cbd5e1;
+          --neutral-400: #94a3b8;
+          --neutral-500: #64748b;
+          --neutral-600: #475569;
+          --neutral-700: #334155;
+          --neutral-800: #1e293b;
+          --neutral-900: #0f172a;
+        }
+        body {
+          font-family: 'Lexend', sans-serif;
+        }
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+        .active-nav-item .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-neutral-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden">
+<div class="flex flex-col flex-grow">
+<header class="flex items-center justify-between p-4 bg-white">
+<div class="w-10"></div>
+<h1 class="text-xl font-bold text-neutral-900">Welcome back, Sarah!</h1>
+<div class="w-10"></div>
+</header>
+<main class="p-4 space-y-6 flex-grow">
+<section class="bg-primary-100 text-primary-900 p-5 rounded-2xl shadow-sm text-center">
+<p class="text-lg font-semibold">Great job staying on track!</p>
+<p class="text-sm opacity-90">You're doing amazing. Keep it up!</p>
+</section>
+<section class="bg-white p-5 rounded-2xl shadow-sm">
+<div class="flex justify-between items-center mb-3">
+<h2 class="text-lg font-semibold text-neutral-800">Weight Goal</h2>
+<p class="text-sm font-medium text-primary-600">Edit Goal</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative w-20 h-20">
+<svg class="w-full h-full" viewBox="0 0 36 36">
+<path class="text-neutral-200" d="M18 2.0845
+                                      a 15.9155 15.9155 0 0 1 0 31.831
+                                      a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-primary-500" d="M18 2.0845
+                                      a 15.9155 15.9155 0 0 1 0 31.831
+                                      a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="75, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-xl font-bold text-neutral-900">145</span>
+<span class="text-xs text-neutral-500">lbs</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between text-sm mb-1">
+<span class="font-medium text-neutral-600">Current</span>
+<span class="font-medium text-neutral-600">Target</span>
+</div>
+<div class="flex items-center gap-2">
+<p class="text-base font-bold text-neutral-900">145 lbs</p>
+<div class="flex-1 h-1 bg-neutral-200 rounded-full">
+<div class="h-1 rounded-full bg-gradient-to-r from-primary-400 to-primary-600" style="width: 75%;"></div>
+</div>
+<p class="text-base font-bold text-neutral-900">135 lbs</p>
+</div>
+<p class="text-xs text-neutral-500 text-center mt-1">10 lbs to go!</p>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-lg font-semibold text-neutral-800 px-1 pb-3">Today's Meals</h2>
+<div class="space-y-3">
+<div class="flex items-center gap-4 bg-white p-3 rounded-2xl shadow-sm">
+<img alt="Breakfast" class="w-16 h-16 rounded-xl object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaVA_B-qOa-SWEHJwyMpQqbaHtwPXM6id5c19tgiRyT3xl54G6iNln2YiFE8jyqg_Rlnu3WL0VFy8P36atnhRouI6j8X4MtTsPYkNe7Um0pZ3OlLSOXqpaNWPP_uXcKFaFG4dEc8NU_iUXD1fc5soMGTytVwlQpmHC11hNq8BIFmnTNYkLiwl1mnc4GmUd4pQcJes2S1wN6wVdddZeTohtK_fqBT-quxGvWi1TF-TLlbOap1WqwNrfV83pkNiavoOtfKWDMPesrW97"/>
+<div class="flex-1">
+<p class="font-semibold text-neutral-800">Breakfast</p>
+<p class="text-sm text-neutral-500">Oatmeal with Berries</p>
+<p class="text-xs text-neutral-400 mt-1">7:00 AM - 350 kcal</p>
+</div>
+<button class="text-primary-500">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+</div>
+<div class="flex items-center gap-4 bg-white p-3 rounded-2xl shadow-sm">
+<img alt="Lunch" class="w-16 h-16 rounded-xl object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCpL5fpG97syophQfM11GvrOhIELer_qhp1JN0sLy48CZg9y5SjDdsxifBh-L-qsNHYUrmaakBV1qNKJdHlM5ESQ8GXDYTXc0oWlUtcxfznXf-5wVKefPlMod2uf1S5eT_RvC1DuVzMdv9f8LYB3YHN47tRZcaBuDCjYLqoCLSbYGONxnn9xqH3iQsTe-nPx23DGBuI0k_iuXAvBLDVf073tkN3OWB0shRk3hnHgEvwodXXDm9LYbCh8tHp3Z5KJiW-hz3VYzykfa8"/>
+<div class="flex-1">
+<p class="font-semibold text-neutral-800">Lunch</p>
+<p class="text-sm text-neutral-500">Grilled Chicken Salad</p>
+<p class="text-xs text-neutral-400 mt-1">12:00 PM - 500 kcal</p>
+</div>
+<button class="text-neutral-300 hover:text-primary-500">
+<span class="material-symbols-outlined">radio_button_unchecked</span>
+</button>
+</div>
+<div class="flex items-center gap-4 bg-white p-3 rounded-2xl shadow-sm">
+<img alt="Dinner" class="w-16 h-16 rounded-xl object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEXhFjmv-Xfg2b-VAzuBlOL64zSXacn9rU0rrghKTPvRb6NEvLI_s1ULP_QoRyRNbzd41FMVw0sBMDJWgpOt8qLKt77hrbyepIxpFxNj_Tj6YjkSBK6KBY9Vcy4Tah9FKUYGM3XG9xfrJiSPnJ3DkfcjMmQbwNkAkJ4D6-eeU4fqFgrcj8fhHGWA8HNgC88N6ihMYGI3UgmhyNCJULt4dKMbXEYvNvoPGhMugMZNeay_x-Jry-LoJZZ7FtdPRl8Xr461J97VBUu2RM"/>
+<div class="flex-1">
+<p class="font-semibold text-neutral-800">Dinner</p>
+<p class="text-sm text-neutral-500">Salmon with Quinoa</p>
+<p class="text-xs text-neutral-400 mt-1">6:00 PM - 600 kcal</p>
+</div>
+<button class="text-neutral-300 hover:text-primary-500">
+<span class="material-symbols-outlined">radio_button_unchecked</span>
+</button>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-lg font-semibold text-neutral-800 px-1 pb-3">Quick Actions</h2>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 bg-primary-500 text-white font-semibold py-3 px-4 rounded-xl shadow-sm hover:bg-primary-600 transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span>Log Meal</span>
+</button>
+<button class="flex items-center justify-center gap-2 bg-neutral-200 text-neutral-800 font-semibold py-3 px-4 rounded-xl shadow-sm hover:bg-neutral-300 transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit</span>
+<span>Adjust Plan</span>
+</button>
+</div>
+</section>
+</main>
+</div>
+<footer class="sticky bottom-0 bg-white border-t border-gray-200">
+<nav class="flex justify-around py-2">
+<a class="flex flex-col items-center gap-1 text-lime-500 active-nav-item" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-xs font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-neutral-500 hover:text-primary-600" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-xs font-medium">Plan</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-neutral-500 hover:text-primary-600" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-xs font-medium">Log</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-neutral-500 hover:text-primary-600" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="text-xs font-medium">Coach</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-neutral-500 hover:text-primary-600" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-xs font-medium">Profile</span>
+</a>
+</nav>
+</footer>
+</div>
+
+</body></html>

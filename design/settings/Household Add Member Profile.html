@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add New Member</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+      --primary-color: #a4ec13;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }.peer:checked ~ .peer-checked\:hidden {
+        display: none;
+    }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-50">
+<div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="flex items-center bg-white p-4 pb-3 justify-between sticky top-0 z-10 border-b border-gray-100">
+<button class="text-gray-800 flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-100">
+<span class="material-symbols-outlined text-2xl"> arrow_back </span>
+</button>
+<h1 class="text-gray-900 text-lg font-bold">Add New Member</h1>
+<div class="size-10"></div>
+</header>
+<main class="p-4 space-y-6">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="size-24 rounded-full bg-gray-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-gray-400">person</span>
+</div>
+<button class="absolute bottom-0 right-0 flex h-8 w-8 items-center justify-center rounded-full bg-gray-900 text-white">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</div>
+<div class="flex-1">
+<label class="block text-sm font-medium text-gray-700" for="name">Name</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm" id="name" name="name" placeholder="Enter name" type="text"/>
+</div>
+</div>
+<div class="space-y-4">
+<h2 class="text-base font-semibold text-gray-900">Account Creation</h2>
+<p class="text-sm text-gray-500">Create a separate login for this member or manage their profile as a child account.</p>
+<div class="relative flex items-start">
+<div class="flex h-6 items-center">
+<input class="peer h-4 w-4 rounded border-gray-300 text-[var(--primary-color)] focus:ring-[var(--primary-color)]" id="child-account" name="account-type" type="checkbox"/>
+</div>
+<div class="ml-3 text-sm leading-6">
+<label class="font-medium text-gray-900" for="child-account">Child Account</label>
+<p class="text-gray-500">You will manage all settings for this profile. No separate login will be created.</p>
+</div>
+</div>
+<div class="peer-checked:hidden space-y-4 pt-4 border-t border-gray-200 mt-4">
+<div>
+<label class="block text-sm font-medium text-gray-700" for="username">Username</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm" id="username" name="username" placeholder="Enter a username" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700" for="password">Password</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm" id="password" name="password" placeholder="Create a password" type="password"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700" for="confirm-password">Confirm Password</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm" id="confirm-password" name="confirm-password" placeholder="Confirm password" type="password"/>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h2 class="text-base font-semibold text-gray-900">Dietary Preferences</h2>
+<div class="space-y-2">
+<label class="sr-only" for="dietary-preferences">Dietary Preferences</label>
+<input class="w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm" id="dietary-preferences" placeholder="e.g., Vegan, High Protein" type="text"/>
+</div>
+</div>
+<div class="space-y-4">
+<h2 class="text-base font-semibold text-gray-900">Allergies</h2>
+<div class="space-y-2">
+<label class="sr-only" for="allergies">Allergies</label>
+<input class="w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm" id="allergies" placeholder="e.g., Peanuts, Shellfish" type="text"/>
+</div>
+</div>
+<div class="space-y-4">
+<h2 class="text-base font-semibold text-gray-900">Food Restrictions/Dislikes</h2>
+<div class="space-y-2">
+<label class="sr-only" for="restrictions">Food Restrictions/Dislikes</label>
+<input class="w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm" id="restrictions" placeholder="e.g., No spicy food, dislikes cilantro" type="text"/>
+</div>
+</div>
+<div class="space-y-4">
+<h2 class="text-base font-semibold text-gray-900">Individual Macro Targets</h2>
+<div class="grid grid-cols-3 gap-4">
+<div>
+<label class="block text-sm font-medium text-gray-700" for="protein">Protein (g)</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm" id="protein" name="protein" type="number"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700" for="carbs">Carbs (g)</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm" id="carbs" name="carbs" type="number"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700" for="fats">Fats (g)</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm" id="fats" name="fats" type="number"/>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h2 class="text-base font-semibold text-gray-900">Schedule Availability</h2>
+<div class="space-y-2">
+<label class="sr-only" for="schedule">Schedule Availability</label>
+<input class="w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm" id="schedule" placeholder="e.g., Weekdays 6-9pm, Weekends" type="text"/>
+</div>
+</div>
+</main>
+</div>
+<div class="sticky bottom-0 bg-white p-4 border-t border-gray-100">
+<button class="w-full rounded-full bg-[var(--primary-color)] px-4 py-3 text-center font-bold text-black shadow-sm transition-colors duration-200 hover:bg-lime-400">
+        Save Member
+      </button>
+</div>
+</div>
+
+</body></html>

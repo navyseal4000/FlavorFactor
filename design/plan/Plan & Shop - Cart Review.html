@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cart Review</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    body {
+      font-family: 'Lexend', sans-serif;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-50">
+<div class="relative flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden">
+<div class="flex-grow">
+<header class="bg-white sticky top-0 z-10 border-b border-gray-200">
+<div class="flex items-center p-4">
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-transparent text-gray-900">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</button>
+<h1 class="text-gray-900 text-xl font-bold leading-tight tracking-tight flex-1 text-center">Cart Review</h1>
+<div class="w-10"></div>
+</div>
+</header>
+<main class="px-4 py-6 space-y-6">
+<div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 flex items-start gap-3">
+<span class="material-symbols-outlined text-yellow-500 text-xl mt-0.5">error</span>
+<div>
+<p class="text-yellow-800 text-sm font-semibold">Couldn't update Whole Foods</p>
+<p class="text-yellow-700 text-sm">We're having trouble connecting. Your items are saved.</p>
+</div>
+<button class="ml-auto text-yellow-800 text-sm font-bold underline">Retry</button>
+</div>
+<div class="space-y-4">
+<h2 class="text-gray-900 text-lg font-bold">Whole Foods Market</h2>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<img alt="Organic Hass Avocados" class="w-16 h-16 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCozAFuXNZv5atHHHM91v81A4RRj0pGw1WJe4Oc-PoQI5I3OJ0ExEkeLRgPR2ZFjqFxFN75NVw-GSpiXcotwvqqqdCxco6LQdewcidCNE1Cn_d8WAcWUI4bCoRAtCEjzE8mhFAspqTiiAKaZzrjQr3BW7nCnDPpdXfY4BuOT6o4Aio2ezYIE7FxzHBpEu7EgwZ_OsuifBR9kSEPjnYEGv9l-EOIlP4y3OBLrQEPRyCksD-nVjB1eKTHWNlkAIYPFLG5dgnUjNt8oovU"/>
+<div class="flex-grow">
+<p class="text-gray-900 text-base">Organic Hass Avocados</p>
+<p class="text-gray-500 text-sm">3 ct</p>
+<p class="text-gray-900 text-base font-semibold">$5.99</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="rounded-full w-8 h-8 flex items-center justify-center border border-gray-300 text-gray-700">-</button>
+<span class="font-semibold w-4 text-center">1</span>
+<button class="rounded-full w-8 h-8 flex items-center justify-center border border-gray-300 text-gray-700">+</button>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<img alt="Organic Chicken Breast" class="w-16 h-16 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEhprjF6-ICy9XE8xsTh7WKCUE6F-j0MEdpQGLWoT2mGL9nMsv4adkGBke3wvWSggx8Up5Q43bJdqBopG4A6Cr85QoUc4rSyX1B6om5xQyePnd2ZIYloBZpfXf9O2B_JRI66rVe-PuLGGLhCl63PaTt58zzcGodqtsoXdytAVy5jiOEDYKoDplnrz9qi98i8MTZ52ySrLAp5srOFDgXqFMxFYXy5cUh13C0gLT9eD0V9lF0u6a2tDYXWPKHeZ0rBAxPH03iSGotrf0"/>
+<div class="flex-grow">
+<p class="text-gray-900 text-base">Organic Chicken Breast</p>
+<p class="text-gray-500 text-sm">1.25 lbs</p>
+<p class="text-gray-900 text-base font-semibold">$12.49</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="rounded-full w-8 h-8 flex items-center justify-center border border-gray-300 text-gray-700">-</button>
+<span class="font-semibold w-4 text-center">1</span>
+<button class="rounded-full w-8 h-8 flex items-center justify-center border border-gray-300 text-gray-700">+</button>
+</div>
+</div>
+<div class="pl-5 border-l-2 border-dashed border-gray-300 ml-8">
+<div class="flex items-start gap-4">
+<img alt="Organic Strawberries" class="w-16 h-16 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_HpMuZgbqAlKNvjWYZEC9KoMgN6JPgcxf3N3rLzDGSToIGv35TQzzhjb4NgXts2lJe6kFKCgHVYdH7ToDBSZzmYIxNGgKjqcG5fedyG9MAhIc27HbMCPt-zhsz-AfWltDapIpKPUifpehksCG094EIWQWSHrqDC2ubAU5eYiRKheqdqsxQQnCk29XuIDcxW9ww0BByJiPSS2PmUBccrBuvNl9lvYuOofe1KDiUc8AxaxIIqfUjqo0E1P8W0ErGd58FPyy0AF3Ybc3"/>
+<div class="flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-orange-500 text-base">swap_horiz</span>
+<p class="text-orange-500 text-sm font-semibold">Substitution</p>
+</div>
+<p class="text-gray-900 text-base">Organic Strawberries</p>
+<p class="text-gray-500 text-sm">1 lb</p>
+<p class="text-gray-900 text-base font-semibold">$4.29</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="rounded-full w-8 h-8 flex items-center justify-center border border-gray-300 text-gray-700">-</button>
+<span class="font-semibold w-4 text-center">1</span>
+<button class="rounded-full w-8 h-8 flex items-center justify-center border border-gray-300 text-gray-700">+</button>
+</div>
+</div>
+<div class="mt-2">
+<p class="text-sm text-gray-500 line-through">Organic Raspberries were unavailable.</p>
+<button class="text-sm font-semibold text-lime-600 underline">Choose another</button>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h2 class="text-gray-900 text-lg font-bold">Trader Joe's</h2>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<img alt="Organic Baby Spinach" class="w-16 h-16 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHtSY--uRLgLuh4AoghqaK-dalAkYgbMC0UYIop2JTxFAtshYD4UAFB5eiewCQRC0WrADaWL8vmNbh6qb6RWgO0Ks17awZXxrGwBRGTM6biB-Y_IrpdXzDy_kUBA66s6mbYn14bUADUSCmtE6682YcSrW9xuJVBwU_R8LWx2xl8LnY-XpNJo_CgXtLk-SyI_sIOG5ruCFS7yu2zBOkjKQEjMy_CNi7AAghqACfjar3cGhVyKZai0LtuUi9tkJ6vgIJMI590apgOjUI"/>
+<div class="flex-grow">
+<p class="text-gray-900 text-base">Organic Baby Spinach</p>
+<p class="text-gray-500 text-sm">5 oz</p>
+<p class="text-gray-900 text-base font-semibold">$2.29</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="rounded-full w-8 h-8 flex items-center justify-center border border-gray-300 text-gray-700">-</button>
+<span class="font-semibold w-4 text-center">1</span>
+<button class="rounded-full w-8 h-8 flex items-center justify-center border border-gray-300 text-gray-700">+</button>
+</div>
+</div>
+<div class="flex items-start gap-4 opacity-50">
+<img alt="Almond Milk" class="w-16 h-16 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR6Q_2piTStbldCUjA0x_66ZoQ2la-_dLVgJesOAqpS2ZFaQxP_u7steru-KJtKp8A0lHSgek4jLjfGwA7Et_NHgj4ueaaDiekDdAGttG-emRhZumBXbLz5zGtGQtslvt8SuwxovXE8eOZzDd8KwOjb0-ki5PwZTNcgemOY_0oLIyHtQForontTCA3q6aC2bg8NBV9-fHUzevWJqtgDIrpkbzONrlRx9-a0OVRjZBwa1ZMWcPUV2_N0_hKCUaI-R2eMFB9cZA25X8o"/>
+<div class="flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-red-500 text-base">error_outline</span>
+<p class="text-red-500 text-sm font-semibold">Out of Stock</p>
+</div>
+<p class="text-gray-900 text-base">Almond Milk</p>
+<p class="text-gray-500 text-sm">64 fl oz</p>
+<p class="text-gray-900 text-base font-semibold">$3.49</p>
+</div>
+<button class="text-sm font-semibold text-lime-600 underline self-center">Find substitute</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<footer class="sticky bottom-0 bg-white border-t border-gray-200">
+<div class="p-4 space-y-4">
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<p class="text-gray-500">Plan Budget</p>
+<p class="text-gray-500">$75.00</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-gray-500">Cart Total</p>
+<p class="text-gray-900 font-semibold">$80.54</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-green-600">Savings</p>
+<p class="text-green-600 font-semibold">-$2.50</p>
+</div>
+<div class="flex justify-between items-center text-red-600">
+<p>Over budget</p>
+<p class="font-semibold">$3.04</p>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 rounded-xl h-12 px-4 bg-lime-400 text-gray-900 text-base font-bold">
+<span>Checkout</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<nav class="flex justify-around border-t border-gray-100 px-4 pb-3 pt-2">
+<a class="flex flex-col items-center justify-end gap-1 text-gray-500 w-16" href="#">
+<span class="material-symbols-outlined text-2xl"> home </span>
+<p class="text-xs font-medium">Home</p>
+</a>
+<a class="flex flex-col items-center justify-end gap-1 rounded-full text-lime-500 w-16" href="#">
+<span class="material-symbols-outlined text-2xl"> calendar_month </span>
+<p class="text-xs font-medium">Plan</p>
+</a>
+<a class="flex flex-col items-center justify-end gap-1 text-gray-500 w-16" href="#">
+<span class="material-symbols-outlined text-2xl"> description </span>
+<p class="text-xs font-medium">Log</p>
+</a>
+<a class="flex flex-col items-center justify-end gap-1 text-gray-500 w-16" href="#">
+<span class="material-symbols-outlined text-2xl"> chat </span>
+<p class="text-xs font-medium">Coach</p>
+</a>
+<a class="flex flex-col items-center justify-end gap-1 text-gray-500 w-16" href="#">
+<span class="material-symbols-outlined text-2xl"> person </span>
+<p class="text-xs font-medium">Profile</p>
+</a>
+</nav>
+</footer>
+</div>
+
+</body></html>

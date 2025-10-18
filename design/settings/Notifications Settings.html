@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+      --primary-color: #a4ec13;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-white shadow-sm">
+<div class="flex items-center px-4 py-3 justify-between">
+<button class="text-gray-700">
+<span class="material-symbols-outlined"> arrow_back_ios_new </span>
+</button>
+<h1 class="text-xl font-bold text-gray-900 flex-1 text-center">Notifications Settings</h1>
+<div class="w-8"></div>
+</div>
+</header>
+<main class="p-4 space-y-6">
+<div class="bg-white rounded-xl shadow-sm p-4">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-gray-900 text-base font-medium">Meal Reminders</p>
+<p class="text-gray-500 text-sm">Reminders to log your meals</p>
+</div>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer checked:right-0 checked:bg-[var(--primary-color)]" id="meal-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer" for="meal-toggle"></label>
+</div>
+</div>
+<div class="mt-4 space-y-4">
+<div class="flex items-center justify-between">
+<p class="text-gray-700">Breakfast</p>
+<p class="text-gray-900 font-medium">9:00 AM</p>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-gray-700">Lunch</p>
+<p class="text-gray-900 font-medium">1:00 PM</p>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-gray-700">Dinner</p>
+<p class="text-gray-900 font-medium">7:00 PM</p>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-sm p-4">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-gray-900 text-base font-medium">Weigh-in Reminders</p>
+<p class="text-gray-500 text-sm">Reminders to track your weight</p>
+</div>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer checked:right-0 checked:bg-[var(--primary-color)]" id="weigh-in-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer" for="weigh-in-toggle"></label>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<p class="text-gray-700">Frequency</p>
+<p class="text-gray-900 font-medium">Weekly, on Monday at 8:00 AM</p>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-sm p-4">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-gray-900 text-base font-medium">Goal Progress Updates</p>
+<p class="text-gray-500 text-sm">Updates on your progress</p>
+</div>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer checked:right-0 checked:bg-[var(--primary-color)]" id="goal-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer" for="goal-toggle"></label>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-sm p-4">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-gray-900 text-base font-medium">Activity Nudges</p>
+<p class="text-gray-500 text-sm">Nudges to stay active</p>
+</div>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer checked:right-0 checked:bg-[var(--primary-color)]" id="activity-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer" for="activity-toggle"></label>
+</div>
+</div>
+</div>
+</main>
+</div>
+<nav class="sticky bottom-0 bg-white border-t border-gray-200">
+<div class="flex justify-around py-2">
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-xs font-medium">Home</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<p class="text-xs font-medium">Plan</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">article</span>
+<p class="text-xs font-medium">Log</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<p class="text-xs font-medium">Coach</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-[var(--primary-color)]" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<p class="text-xs font-medium">Profile</p>
+</a>
+</div>
+</nav>
+</div>
+
+</body></html>

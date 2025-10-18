@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customize Analytics View</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+      --primary-color: #a4ec13;
+      --secondary-color: #f0fdf4;
+      --text-primary: #111827;
+      --text-secondary: #6b7280;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 38px;
+      height: 22px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: var(--primary-color);
+    }
+    input:checked + .slider:before {
+      transform: translateX(16px);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-50" style="font-family: 'Inter', sans-serif;">
+<div class="flex flex-col min-h-screen">
+<header class="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
+<button class="flex size-10 items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-gray-700">arrow_back_ios_new</span>
+</button>
+<h1 class="text-xl font-bold text-gray-900">Customize Analytics View</h1>
+<div class="w-10"></div>
+</header>
+<main class="flex-grow p-4 space-y-6">
+<section>
+<h2 class="text-lg font-semibold text-gray-800 mb-3">Date Range</h2>
+<div class="grid grid-cols-2 gap-3">
+<button class="w-full rounded-full py-2 text-sm font-medium bg-[var(--primary-color)] text-gray-900">Last 7 Days</button>
+<button class="w-full rounded-full py-2 text-sm font-medium bg-gray-200 text-gray-700">Last Month</button>
+<button class="w-full rounded-full py-2 text-sm font-medium bg-gray-200 text-gray-700">Last 3 Months</button>
+<button class="w-full rounded-full py-2 text-sm font-medium bg-gray-200 text-gray-700">Last Year</button>
+</div>
+<div class="mt-4">
+<label class="block text-sm font-medium text-gray-700 mb-1" for="custom-date">Custom Range</label>
+<div class="flex items-center gap-2">
+<input class="w-full rounded-lg border-gray-300 shadow-sm focus:border-lime-500 focus:ring-lime-500 text-sm" id="start-date" type="date"/>
+<span class="text-gray-500">-</span>
+<input class="w-full rounded-lg border-gray-300 shadow-sm focus:border-lime-500 focus:ring-lime-500 text-sm" id="end-date" type="date"/>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-lg font-semibold text-gray-800 mb-3">Metrics</h2>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm">
+<span class="font-medium text-gray-700">Weight Trend</span>
+<label class="switch">
+<input checked="" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<div class="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm">
+<span class="font-medium text-gray-700">Calorie Adherence</span>
+<label class="switch">
+<input checked="" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<div class="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm">
+<span class="font-medium text-gray-700">Macro Targets Hit</span>
+<label class="switch">
+<input checked="" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<div class="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm">
+<span class="font-medium text-gray-700">Leftover Usage</span>
+<label class="switch">
+<input type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<div class="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm">
+<span class="font-medium text-gray-700">Activity Levels</span>
+<label class="switch">
+<input type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-lg font-semibold text-gray-800 mb-3">Visualization Type</h2>
+<div class="flex items-center gap-3">
+<button class="flex-1 flex flex-col items-center gap-2 p-3 rounded-lg border-2 border-[var(--primary-color)] bg-[var(--secondary-color)]">
+<span class="material-symbols-outlined text-[var(--primary-color)]">show_chart</span>
+<span class="text-sm font-medium text-gray-800">Line Graph</span>
+</button>
+<button class="flex-1 flex flex-col items-center gap-2 p-3 rounded-lg border border-gray-200 bg-white">
+<span class="material-symbols-outlined text-gray-400">bar_chart</span>
+<span class="text-sm font-medium text-gray-600">Bar Chart</span>
+</button>
+</div>
+</section>
+<section>
+<h2 class="text-lg font-semibold text-gray-800 mb-3">Data Aggregation</h2>
+<div>
+<select class="w-full rounded-lg border-gray-300 shadow-sm focus:border-lime-500 focus:ring-lime-500 text-sm" id="aggregation">
+<option>Daily Average</option>
+<option selected="">Weekly Average</option>
+<option>Monthly Total</option>
+</select>
+</div>
+</section>
+</main>
+<footer class="p-4 bg-white border-t border-gray-200">
+<button class="w-full h-12 flex items-center justify-center rounded-full bg-[var(--primary-color)] text-gray-900 font-bold text-base shadow-lg shadow-lime-300/50">
+        Apply Changes
+      </button>
+</footer>
+</div>
+
+</body></html>

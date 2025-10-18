@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-color: #a4ec13;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100 dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-50">
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+<div class="flex-1 pb-24">
+<header class="bg-white pt-4 pb-2 shadow-sm">
+<div class="flex items-center justify-between px-4">
+<button>
+<span class="material-symbols-outlined text-gray-800">menu</span>
+</button>
+<h1 class="text-xl font-bold text-gray-900">Log</h1>
+<div class="w-8"></div>
+</div>
+<nav class="mt-4">
+<div class="flex justify-center border-b border-gray-200">
+<a class="px-6 py-2 text-sm font-medium text-gray-500 hover:text-gray-900" href="#">Food</a>
+<a class="px-6 py-2 text-sm font-bold text-gray-900 border-b-2 border-[var(--primary-color)]" href="#">Weight</a>
+<a class="px-6 py-2 text-sm font-medium text-gray-500 hover:text-gray-900" href="#">Activity</a>
+</div>
+</nav>
+</header>
+<main class="p-4 space-y-6">
+<section class="bg-white p-6 rounded-2xl shadow-sm">
+<h2 class="text-lg font-semibold text-gray-800 mb-4">Log Your Weight</h2>
+<div class="relative">
+<input class="form-input w-full text-5xl font-bold text-gray-900 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-[var(--primary-color)] text-center p-4 transition" placeholder="0.0" type="number"/>
+<span class="absolute right-4 bottom-5 text-xl font-medium text-gray-500">lbs</span>
+</div>
+<textarea class="form-textarea mt-4 w-full rounded-xl border-gray-200 bg-gray-50 focus:border-[var(--primary-color)] focus:ring-1 focus:ring-[var(--primary-color)] transition-all" placeholder="Add a note (e.g., 'Feeling great!')" rows="3"></textarea>
+<button class="w-full mt-4 bg-[var(--primary-color)] text-black font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-transform active:scale-95">
+                    Save Log
+                </button>
+</section>
+<section class="bg-white p-6 rounded-2xl shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-lg font-semibold text-gray-800">History</h2>
+<button class="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900">
+<span class="material-symbols-outlined text-base">sync_alt</span>
+                        Sync with Scale
+                    </button>
+</div>
+<div class="flex justify-center bg-gray-100 p-1 rounded-full mb-4">
+<button class="px-4 py-1 text-sm font-medium text-gray-500">Last 7 Days</button>
+<button class="px-4 py-1 text-sm font-semibold text-gray-800 bg-white rounded-full shadow-sm">Last Month</button>
+<button class="px-4 py-1 text-sm font-medium text-gray-500">Last Year</button>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-4xl font-bold text-gray-900">151.5 <span class="text-lg font-medium text-gray-500">lbs</span></p>
+<div class="flex items-center text-red-500">
+<span class="material-symbols-outlined">trending_down</span>
+<p class="font-semibold">3.5 lbs</p>
+</div>
+</div>
+<p class="text-sm text-gray-500 mb-4">vs last month average</p>
+<div class="h-48 relative">
+<svg class="absolute inset-0" fill="none" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 472 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient gradientUnits="userSpaceOnUse" id="gradient-month" x1="0" x2="0" y1="0" y2="150">
+<stop stop-color="var(--primary-color)" stop-opacity="0.3"></stop>
+<stop offset="1" stop-color="var(--primary-color)" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+<path d="M0 86C62.9333 86 62.9333 34 125.867 34C188.8 34 188.8 68 251.733 68C314.667 68 314.667 22 377.6 22C440.533 22 440.533 50 472 50V150H0V86Z" fill="url(#gradient-month)"></path>
+<path d="M0 86C62.9333 86 62.9333 34 125.867 34C188.8 34 188.8 68 251.733 68C314.667 68 314.667 22 377.6 22C440.533 22 440.533 50 472 50" stroke="var(--primary-color)" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<div class="absolute inset-0 flex justify-around items-end">
+<div class="relative" style="left: calc(125.867/472 * 100%); top: calc(-116/150 * 100% + 50%); transform: translate(-50%, -50%);">
+<div class="w-3 h-3 rounded-full bg-white border-2 border-[var(--primary-color)]"></div>
+</div>
+<div class="relative" style="left: calc(251.733/472 * 100%); top: calc(-82/150 * 100% + 50%); transform: translate(-50%, -50%);">
+<div class="w-3 h-3 rounded-full bg-white border-2 border-[var(--primary-color)]"></div>
+</div>
+<div class="relative" style="left: calc(377.6/472 * 100%); top: calc(-128/150 * 100% + 50%); transform: translate(-50%, -50%);">
+<div class="w-3 h-3 rounded-full bg-white border-2 border-[var(--primary-color)]"></div>
+</div>
+<div class="relative" style="left: calc(472/472 * 100% - 6px); top: calc(-100/150 * 100% + 50%); transform: translate(-50%, -50%);">
+<div class="w-3 h-3 rounded-full bg-white border-2 border-[var(--primary-color)]"></div>
+</div>
+</div>
+</div>
+<div class="flex justify-around mt-2 border-t border-gray-100 pt-2">
+<p class="text-gray-900 text-xs font-bold">Week 1</p>
+<p class="text-gray-500 text-xs font-medium">Week 2</p>
+<p class="text-gray-500 text-xs font-medium">Week 3</p>
+<p class="text-gray-500 text-xs font-medium">Week 4</p>
+</div>
+</section>
+</main>
+</div>
+<footer class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-t-sm">
+<nav class="flex justify-around items-center px-4 py-2">
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500 hover:text-[var(--primary-color)] transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-xs font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500 hover:text-[var(--primary-color)] transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-xs font-medium">Plan</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-[var(--primary-color)]" href="#">
+<div class="relative">
+<div class="absolute -inset-2 bg-[var(--primary-color)] opacity-25 rounded-full"></div>
+<span class="material-symbols-outlined">edit_square</span>
+</div>
+<span class="text-xs font-bold">Log</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500 hover:text-[var(--primary-color)] transition-colors" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="text-xs font-medium">Coach</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500 hover:text-[var(--primary-color)] transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-xs font-medium">Profile</span>
+</a>
+</nav>
+</footer>
+</div>
+
+</body></html>

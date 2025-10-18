@@ -1,0 +1,23 @@
+[
+{
+"screen": "coach",
+"route": "/tabs/coach/chat",
+"primaryActions": ["Ask Coach", "View Tips"],
+"data": { "queries": ["coach.messages"], "mutations": ["coach.ask"] },
+"states": ["loading","empty"]
+},
+{
+"screen": "coach",
+"route": "/tabs/coach/progress",
+"primaryActions": ["View Progress", "View Nutritional Targets"],
+"data": { "queries": ["coach.progress"], "mutations": ["coach.targets"] },
+"states": ["loading","empty"]
+},
+{
+"screen": "plan",
+"route": "/tabs/plan/checkout",
+"primaryActions": ["Checkout Cart", "Modify Vendor"],
+"data": { "queries": ["plan.checkout"], "mutations": ["plan.modify_vendor"] },
+"states": ["loading","empty"]
+}
+]

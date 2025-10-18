@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8"/>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        :root {
+          --primary-color: #a4ec13;
+        }
+        .switch {
+          position: relative;
+          display: inline-block;
+          width: 38px;
+          height: 22px;
+        }
+        .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 18px;
+          width: 18px;
+          left: 2px;
+          bottom: 2px;
+          background-color: white;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        input:checked+.slider {
+          background-color: var(--primary-color);
+        }
+        input:focus+.slider {
+          box-shadow: 0 0 1px var(--primary-color);
+        }
+        input:checked+.slider:before {
+          -webkit-transform: translateX(16px);
+          -ms-transform: translateX(16px);
+          transform: translateX(16px);
+        }.slider.round {
+          border-radius: 34px;
+        }
+        .slider.round:before {
+          border-radius: 50%;
+        }
+  </style>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-50">
+<div class="relative flex size-full min-h-screen flex-col group/design-root" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-white shadow-sm">
+<div class="flex items-center px-4 py-3 justify-between">
+<button class="text-gray-700">
+<span class="material-symbols-outlined"> arrow_back_ios_new </span>
+</button>
+<h1 class="text-xl font-bold text-gray-900 flex-1 text-center">Delete Account</h1>
+<div class="w-8"></div>
+</div>
+</header>
+<main class="p-6 flex flex-col flex-grow">
+<div class="flex-grow space-y-8">
+<div class="text-center">
+<span class="material-symbols-outlined text-red-500 text-6xl">error_outline</span>
+<h2 class="mt-4 text-2xl font-bold text-gray-900">Are you sure you want to delete your account?</h2>
+</div>
+<div class="bg-red-50 border border-red-200 rounded-xl p-4 space-y-3">
+<p class="text-red-700 font-semibold text-base">This action is irreversible.</p>
+<ul class="space-y-2 text-red-600 text-sm list-disc list-inside">
+<li>All your data, including meal plans, tracking history, and preferences, will be permanently erased.</li>
+<li>You will lose access to all associated services, including your personalized coach and community features.</li>
+<li>You will not be able to recover your account or any of its data in the future.</li>
+</ul>
+</div>
+<div class="space-y-4">
+<label class="text-sm font-medium text-gray-700" for="password">To confirm, please enter your password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">lock</span>
+<input class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500" id="password" placeholder="Enter your password" type="password"/>
+</div>
+</div>
+<div class="flex items-start space-x-3">
+<input class="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500 mt-0.5" id="confirm-checkbox" type="checkbox"/>
+<label class="text-gray-700 text-sm" for="confirm-checkbox"> I understand that this action is permanent and I will lose all my data.</label>
+</div>
+</div>
+<div class="mt-8">
+<button class="w-full bg-red-600 text-white font-bold py-4 rounded-xl hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:bg-red-300 disabled:cursor-not-allowed">
+          Delete My Account
+        </button>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>
