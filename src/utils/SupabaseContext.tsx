@@ -19,13 +19,25 @@ type SupabaseContextProps = {
   setOAuthSession: (tokens: { access_token: string; refresh_token: string }) => Promise<void>;
 };
 
+function notImplemented(method: string): never {
+  throw new Error(`${method} is not available outside of SupabaseProvider.`);
+}
+
 export const SupabaseContext = createContext<SupabaseContextProps>({
   loggedIn: false,
   user: null,
-  signOut: async () => {},
-  getAppleOAuthUrl: async () => '',
-  getGoogleOAuthUrl: async () => '',
-  setOAuthSession: async () => {},
+  signOut: async () => {
+    notImplemented('signOut');
+  },
+  getAppleOAuthUrl: async () => {
+    notImplemented('getAppleOAuthUrl');
+  },
+  getGoogleOAuthUrl: async () => {
+    notImplemented('getGoogleOAuthUrl');
+  },
+  setOAuthSession: async () => {
+    notImplemented('setOAuthSession');
+  },
 });
 
 export function useSupabase() {

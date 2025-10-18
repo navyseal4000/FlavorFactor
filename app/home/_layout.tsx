@@ -1,5 +1,6 @@
 import type { DrawerContentComponentProps } from '@react-navigation/drawer';
 import { DrawerItem } from '@react-navigation/drawer';
+import { useRouter } from 'expo-router';
 import { Drawer } from 'expo-router/drawer';
 import { StatusBar } from 'expo-status-bar';
 import { ScrollView } from 'react-native';
@@ -14,9 +15,14 @@ const DrawerLabelStyle = {
   fontSize: 24,
 };
 
-function CustomDrawerContent({ drawerPosition, navigation }: any) {
+type CustomDrawerContentProps = DrawerContentComponentProps & {
+  drawerPosition: 'left' | 'right';
+};
+
+function CustomDrawerContent({ drawerPosition, navigation }: CustomDrawerContentProps) {
   const insets = useSafeAreaInsets();
   const { signOut } = useSupabase();
+  const router = useRouter();
 
   return (
     <ScrollView
@@ -37,6 +43,14 @@ function CustomDrawerContent({ drawerPosition, navigation }: any) {
       <DrawerItem
         label="Settings"
         onPress={() => navigation.navigate('settings')}
+        labelStyle={DrawerLabelStyle}
+      />
+      <DrawerItem
+        label="Design Library"
+        onPress={() => {
+          navigation.closeDrawer();
+          router.push('/designs');
+        }}
         labelStyle={DrawerLabelStyle}
       />
       <DrawerItem

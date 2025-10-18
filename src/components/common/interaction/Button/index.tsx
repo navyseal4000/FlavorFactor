@@ -1,3 +1,5 @@
+import type { ComponentProps } from 'react';
+
 import { ButtonLoader } from './components';
 import { ButtonContainer, ButtonIcon, ButtonLabel, ButtonWrapper } from './styled';
 import { ButtonContentProps, ButtonProps } from './types';
@@ -59,7 +61,7 @@ export const Button = ({
   return (
     <ButtonContainer
       onPress={onPress}
-      style={style}
+      style={style as ComponentProps<typeof ButtonContainer>['style']}
     >
       {({ pressed }) => {
         return (
