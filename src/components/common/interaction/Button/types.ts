@@ -22,7 +22,7 @@ export type ButtonProps = Omit<PressableProps, 'onPress' | 'style'> &
   IconType & {
     isPressed?: boolean;
     onPress: () => void;
-    style?: any;
+    style?: PressableProps['style'];
   };
 
 export type ButtonWrapperProps = ButtonVariantsType &

@@ -1,16 +1,11 @@
-import { Container } from '@common/layout';
-import { Text } from '@common/typography';
+/* eslint-disable @typescript-eslint/no-var-requires */
+import { createDesignScreen } from '@modules/design';
 
-export default function HomeScreen() {
-  return (
-    <Container>
-      <Text
-        align="center"
-        color="gray800"
-        size={48}
-      >
-        Home
-      </Text>
-    </Container>
-  );
-}
+export default createDesignScreen(
+  require('../../assets/design/home/Home Dashboard.html'),
+  'Home Dashboard',
+  {
+    fallbackImage: require('../../assets/design/home/Home Dashboard.png'),
+    description: 'Primary dashboard summarising progress and actionable shortcuts.',
+  },
+);

@@ -1,7 +1,8 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": [
+  "plugins": ["@typescript-eslint"],
+  "extends": [
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
@@ -98,24 +99,7 @@
 
     "@typescript-eslint/explicit-module-boundary-types": [0],
     "@typescript-eslint/semi": ["error", "always"],
-    "@typescript-eslint/indent": [
-      "error",
-      2,
-      {
-        "SwitchCase": 1,
-        "ObjectExpression": 1,
-        "MemberExpression": 1,
-        "CallExpression": {
-          "arguments": 1
-        },
-        "ignoredNodes": [
-          "PropertyDefinition[decorators]",
-          "TSUnionType",
-          "FunctionExpression[params]",
-          "CallExpression[arguments]"
-        ]
-      }
-    ],
+    "@typescript-eslint/indent": "off",
     "@typescript-eslint/ban-ts-ignore": 0,
     "@typescript-eslint/ban-ts-comment": 0,
     "@typescript-eslint/explicit-function-return-type": [0],
