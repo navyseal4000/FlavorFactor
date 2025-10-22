@@ -6,6 +6,8 @@ import { join } from 'node:path';
 
 import { designManifest } from '@modules/design/manifest';
 
+import { runPlanFeatureTests } from './planFeature.test';
+
 const root = join(__dirname, '..');
 
 function routeToScreenPath(route: string) {
@@ -44,3 +46,7 @@ for (const entry of designManifest) {
 }
 
 console.info(`Verified ${designManifest.length} design entries.`);
+
+runPlanFeatureTests();
+
+console.info('Plan feature smoke tests passed.');
