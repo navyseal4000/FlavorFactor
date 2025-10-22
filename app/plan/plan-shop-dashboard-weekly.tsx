@@ -1,11 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import { createDesignScreen } from '@modules/design';
+import { ReactElement } from 'react';
 
-export default createDesignScreen(
-  require('../../assets/design/plan/Plan & Shop Dashboard - Weekly.html'),
-  'Plan & Shop Dashboard – Weekly',
-  {
-    fallbackImage: require('../../assets/design/plan/Plan & Shop Dashboard - Weekly.png'),
-    description: 'Weekly calendar of meals and shopping needs.',
-  },
-);
+import { PlanTabsScreen } from '../../src/features/plan/screens/PlanTabsScreen';
+
+export default function PlanWeeklyRoute(): ReactElement {
+  return <PlanTabsScreen initialTab="weekly" />;
+}
