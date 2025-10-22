@@ -1,10 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import { createDesignScreen } from '@modules/design';
+import { PrivacySettingsScreen } from '../../src/features/profile/screens/PrivacySettingsScreen';
 
-export default createDesignScreen(
-  require('../../assets/design/settings/Privacy Settings.html'),
-  'Privacy Settings',
-  {
-    fallbackImage: require('../../assets/design/settings/Privacy Settings.png'),
-  },
-);
+export default function PrivacySettingsRoute() {
+  return <PrivacySettingsScreen />;
+}

@@ -260,8 +260,3 @@ const PrimaryButtonLabel = styled.Text`
 const BottomSearchContainer = styled(View)`
   margin-bottom: 16px;
 `;
-
-
-
-
-

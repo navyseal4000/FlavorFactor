@@ -379,4 +379,3 @@ const StyledInput = styled(TextInput)`
   color: #1f2937;
 `;
 
-

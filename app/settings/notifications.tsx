@@ -1,10 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import { createDesignScreen } from '@modules/design';
+import { NotificationsSettingsScreen } from '../../src/features/profile/screens/NotificationsSettingsScreen';
 
-export default createDesignScreen(
-  require('../../assets/design/settings/Notifications Settings.html'),
-  'Notification Settings',
-  {
-    fallbackImage: require('../../assets/design/settings/Notifications Settings.png'),
-  },
-);
+export default function NotificationsSettingsRoute() {
+  return <NotificationsSettingsScreen />;
+}

@@ -4,8 +4,11 @@ import { strict as assert } from 'node:assert';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 
+import './setupTesting';
+
 import { designManifest } from '@modules/design/manifest';
 
+import { runProfileScreenTests } from './profileScreens.test';
 import { runPlanFeatureTests } from './planFeature.test';
 
 const root = join(__dirname, '..');
@@ -57,6 +60,7 @@ async function main() {
 
 void main();
 console.info(`Verified ${designManifest.length} design entries.`);
+runProfileScreenTests();
 
 runPlanFeatureTests();
 

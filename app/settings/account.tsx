@@ -1,10 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import { createDesignScreen } from '@modules/design';
+import { AccountSettingsScreen } from '../../src/features/profile/screens/AccountSettingsScreen';
 
-export default createDesignScreen(
-  require('../../assets/design/settings/Account Settings.html'),
-  'Account Settings',
-  {
-    fallbackImage: require('../../assets/design/settings/Account Settings.png'),
-  },
-);
+export default function AccountSettingsRoute() {
+  return <AccountSettingsScreen />;
+}

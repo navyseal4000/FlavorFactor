@@ -1,10 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import { createDesignScreen } from '@modules/design';
+import { DataConnectionsScreen } from '../../src/features/profile/screens/DataConnectionsScreen';
 
-export default createDesignScreen(
-  require('../../assets/design/settings/Health Data Sync.html'),
-  'Health Data Sync',
-  {
-    fallbackImage: require('../../assets/design/settings/Health Data Sync.png'),
-  },
-);
+export default function HealthDataSyncRoute() {
+  return <DataConnectionsScreen />;
+}

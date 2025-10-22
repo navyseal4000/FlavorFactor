@@ -1,10 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import { createDesignScreen } from '@modules/design';
+import { CoreSettingsScreen } from '../../src/features/profile/screens/CoreSettingsScreen';
 
-export default createDesignScreen(
-  require('../../assets/design/settings/Core Settings.html'),
-  'Core Settings',
-  {
-    fallbackImage: require('../../assets/design/settings/Core Settings.png'),
-  },
-);
+export default function CoreSettingsRoute() {
+  return <CoreSettingsScreen />;
+}

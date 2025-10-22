@@ -251,7 +251,7 @@ export default function AuthScreen() {
               align="center"
             >
               {authMode === 'signIn'
-                ? "Don't have an account? Create one"
+                ? 'Don\'t have an account? Create one'
                 : 'Already have an account? Sign in'}
             </ToggleModeText>
           </ToggleModeButton>

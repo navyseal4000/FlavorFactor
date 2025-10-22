@@ -1,10 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import { createDesignScreen } from '@modules/design';
+import { HouseholdMembersScreen } from '../../src/features/profile/screens/HouseholdMembersScreen';
 
-export default createDesignScreen(
-  require('../../assets/design/settings/Household Members.html'),
-  'Household Members',
-  {
-    fallbackImage: require('../../assets/design/settings/Household Members.png'),
-  },
-);
+export default function HouseholdMembersRoute() {
+  return <HouseholdMembersScreen />;
+}

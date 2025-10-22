@@ -1,10 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import { createDesignScreen } from '@modules/design';
+import { AnalyticsExportScreen } from '../../src/features/profile/screens/AnalyticsExportScreen';
 
-export default createDesignScreen(
-  require('../../assets/design/settings/Analytics and Trends - Export Data.html'),
-  'Analytics & Trends – Export',
-  {
-    fallbackImage: require('../../assets/design/settings/Analytics and Trends - Export Data.png'),
-  },
-);
+export default function AnalyticsExportRoute() {
+  return <AnalyticsExportScreen />;
+}
