@@ -6,18 +6,18 @@ import styled from 'styled-components/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const VITAMINS = [
-  { name: 'Vitamin A', value: '150 mcg', percent: '17%' },
-  { name: 'Vitamin C', value: '5 mg', percent: '6%' },
-  { name: 'Vitamin D', value: '1 mcg', percent: '5%' },
-  { name: 'Vitamin E', value: '1 mg', percent: '7%' },
-  { name: 'Vitamin K', value: '10 mcg', percent: '8%' },
+  { name: 'Vitamin A', value: '150 mcg', percent: 17 },
+  { name: 'Vitamin C', value: '5 mg', percent: 6 },
+  { name: 'Vitamin D', value: '1 mcg', percent: 5 },
+  { name: 'Vitamin E', value: '1 mg', percent: 7 },
+  { name: 'Vitamin K', value: '10 mcg', percent: 8 },
 ];
 
 const MINERALS = [
-  { name: 'Calcium', value: '100 mg', percent: '8%' },
-  { name: 'Iron', value: '1 mg', percent: '6%' },
-  { name: 'Magnesium', value: '10 mg', percent: '2%' },
-  { name: 'Sodium', value: '200 mg', percent: '9%' },
+  { name: 'Calcium', value: '100 mg', percent: 8 },
+  { name: 'Iron', value: '1 mg', percent: 6 },
+  { name: 'Magnesium', value: '10 mg', percent: 2 },
+  { name: 'Sodium', value: '200 mg', percent: 9 },
 ];
 
 export default function MicronutrientsScreen(): ReactElement {
@@ -43,10 +43,10 @@ export default function MicronutrientsScreen(): ReactElement {
                 <MetricName>{item.name}</MetricName>
                 <MetricDetail>
                   <MetricValue>{item.value}</MetricValue>
-                  <MetricPercent>{item.percent} DV</MetricPercent>
+                  <MetricPercent>{item.percent}% DV</MetricPercent>
                 </MetricDetail>
                 <ProgressBar>
-                  <ProgressFill style={{ width: item.percent }} />
+                  <ProgressFill $percent={item.percent} />
                 </ProgressBar>
               </MetricRow>
             ))}
@@ -60,10 +60,10 @@ export default function MicronutrientsScreen(): ReactElement {
                 <MetricName>{item.name}</MetricName>
                 <MetricDetail>
                   <MetricValue>{item.value}</MetricValue>
-                  <MetricPercent>{item.percent} DV</MetricPercent>
+                  <MetricPercent>{item.percent}% DV</MetricPercent>
                 </MetricDetail>
                 <ProgressBar>
-                  <ProgressFill style={{ width: item.percent }} />
+                  <ProgressFill $percent={item.percent} />
                 </ProgressBar>
               </MetricRow>
             ))}
@@ -165,10 +165,11 @@ const ProgressBar = styled(View)`
   overflow: hidden;
 `;
 
-const ProgressFill = styled(View)`
+const ProgressFill = styled(View)<{ $percent: number }>`
   height: 100%;
   border-radius: 999px;
   background-color: #a4ec13;
+  width: ${({ $percent }) => `${$percent}%`};
 `;
 
 const Footer = styled(View)`
@@ -183,5 +184,4 @@ const FooterNote = styled.Text`
   color: #6b7280;
   text-align: center;
 `;
-
 

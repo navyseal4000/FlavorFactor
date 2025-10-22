@@ -181,6 +181,16 @@ const styles = StyleSheet.create({
   flex: {
     flex: 1,
   },
+  footer: {
+    backgroundColor: '#FFFFFF',
+    borderTopColor: '#E2E8F0',
+    borderTopWidth: StyleSheet.hairlineWidth,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+  },
+  footerButton: {
+    width: '100%',
+  },
   header: {
     backgroundColor: '#FFFFFF',
     paddingBottom: 8,
@@ -191,16 +201,6 @@ const styles = StyleSheet.create({
     borderTopColor: '#E2E8F0',
     borderTopWidth: StyleSheet.hairlineWidth,
     flex: 1,
-  },
-  footer: {
-    backgroundColor: '#FFFFFF',
-    borderTopColor: '#E2E8F0',
-    borderTopWidth: StyleSheet.hairlineWidth,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-  },
-  footerButton: {
-    width: '100%',
   },
   screen: {
     backgroundColor: '#FFFFFF',

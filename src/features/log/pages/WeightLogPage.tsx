@@ -372,6 +372,3 @@ const ChartInner = styled(View)`
   overflow: hidden;
   background-color: #ffffff;
 `;
-
-
-

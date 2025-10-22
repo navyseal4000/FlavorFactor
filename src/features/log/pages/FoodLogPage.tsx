@@ -151,4 +151,3 @@ const MealMeta = styled.Text`
   margin-top: 4px;
 `;
 
-

@@ -67,15 +67,17 @@ export function useSupabase() {
 
 function useProtectedRoute(user: UserType, pendingProfile: PendingProfile | null, loggedIn: boolean) {
   const segments = useSegments();
+  const segmentList = [...segments];
   const router = useRouter();
 
   useEffect(() => {
     if (user === undefined && !pendingProfile && !loggedIn) return;
 
-    const rootSegment = segments[0];
+    const rootSegment = segmentList[0];
     const isAuthRoot = rootSegment === undefined;
     const isOnboarding = rootSegment === 'onboarding';
-    const isCompleteProfile = isOnboarding && segments[1] === 'complete-profile';
+    const isCompleteProfile =
+      isOnboarding && segmentList.length > 1 && segmentList[1] === 'complete-profile';
 
     if (!loggedIn) {
       if (!isAuthRoot) {
@@ -297,6 +299,6 @@ declare module 'jwt-decode' {
   export interface JwtPayload {
     email: string;
     name?: string | null;
-    sub: string;
+    sub?: string;
   }
 }
