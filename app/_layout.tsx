@@ -14,7 +14,11 @@ export default function RootLayout() {
           <StatusBar style="dark" />
           <Stack
             initialRouteName="index"
-            screenOptions={{ header: () => null }}
+            screenOptions={{
+              headerShown: false,
+              animation: 'fade',
+              gestureEnabled: false,
+            }}
           />
         </SupabaseProvider>
       </ThemeProvider>
