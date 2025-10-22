@@ -1,11 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import { createDesignScreen } from '@modules/design';
+import { CoachProgressScreen } from '../../src/features/coach/screens/CoachProgressScreen';
 
-export default createDesignScreen(
-  require('../../assets/design/coach/Coach Progress Screen.html'),
-  'Coach Progress Screen',
-  {
-    fallbackImage: require('../../assets/design/coach/Coach Progress Screen.png'),
-    description: 'Progress reporting for coaches tracking member outcomes.',
-  },
-);
+export default CoachProgressScreen;

@@ -20,27 +20,37 @@ function routeToScreenPath(route: string) {
   return join(directory, filename);
 }
 
-for (const entry of designManifest) {
-  const htmlPath = join(root, entry.htmlFile);
-  const pngPath = entry.pngFile ? join(root, entry.pngFile) : null;
-  const screenPath = routeToScreenPath(entry.route);
+async function verifyDesignManifest() {
+  for (const entry of designManifest) {
+    const htmlPath = join(root, entry.htmlFile);
+    const pngPath = entry.pngFile ? join(root, entry.pngFile) : null;
+    const screenPath = routeToScreenPath(entry.route);
 
-  assert(
-    existsSync(htmlPath),
-    `Expected HTML asset for ${entry.title} at ${entry.htmlFile}`,
-  );
-
-  if (pngPath) {
     assert(
-      existsSync(pngPath),
-      `Expected PNG asset for ${entry.title} at ${entry.pngFile}`,
+      existsSync(htmlPath),
+      `Expected HTML asset for ${entry.title} at ${entry.htmlFile}`,
+    );
+
+    if (pngPath) {
+      assert(
+        existsSync(pngPath),
+        `Expected PNG asset for ${entry.title} at ${entry.pngFile}`,
+      );
+    }
+
+    assert(
+      existsSync(screenPath),
+      `Expected Expo Router screen for ${entry.title} at ${screenPath.replace(root + '/', '')}`,
     );
   }
 
-  assert(
-    existsSync(screenPath),
-    `Expected Expo Router screen for ${entry.title} at ${screenPath.replace(root + '/', '')}`,
-  );
+  console.info(`Verified ${designManifest.length} design entries.`);
 }
 
-console.info(`Verified ${designManifest.length} design entries.`);
+async function main() {
+  await verifyDesignManifest();
+  const { runCoachScreenTests } = await import('./coach/coachScreens.test');
+  await runCoachScreenTests();
+}
+
+void main();
