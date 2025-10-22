@@ -1,5 +1,12 @@
-import { ReactElement } from 'react';
-import { Image, ScrollView, TextInput, View } from 'react-native';
+import { ReactElement, useMemo } from 'react';
+import {
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  TextInput,
+  View,
+} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import styled from 'styled-components/native';
@@ -8,13 +15,32 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { LOG_PRIMARY_COLOR } from '../../src/features/log/constants';
 import { quickAddFoods, recentFoods } from '../../src/features/log/mockData';
 
+const isIOS = Platform.OS === 'ios';
+
 export default function AddFoodScreen(): ReactElement {
   const router = useRouter();
-  const { bottom } = useSafeAreaInsets();
+  const { top, bottom } = useSafeAreaInsets();
 
-  return (
+  const searchField = useMemo(
+    () => (
+      <SearchField>
+        <MaterialIcons name="search" size={22} color="#7c8961" />
+        <SearchInput
+          placeholder="Search for food"
+          placeholderTextColor="#7c8961"
+          autoCorrect={false}
+        />
+        <IconButton onPress={() => router.push('/log/barcode' as never)}>
+          <MaterialIcons name="qr-code-scanner" size={22} color="#7c8961" />
+        </IconButton>
+      </SearchField>
+    ),
+    [router],
+  );
+
+  const content = (
     <Container>
-      <Header>
+      <Header style={{ paddingTop: Math.max(top, 16) }}>
         <IconButton onPress={() => router.back()}>
           <MaterialIcons name="arrow-back" size={22} color="#111827" />
         </IconButton>
@@ -22,19 +48,7 @@ export default function AddFoodScreen(): ReactElement {
         <View style={{ width: 40 }} />
       </Header>
       <ScrollView contentContainerStyle={{ paddingBottom: bottom + 120 }}>
-        <Section>
-          <SearchField>
-            <MaterialIcons name="search" size={22} color="#7c8961" />
-            <SearchInput
-              placeholder="Search for food"
-              placeholderTextColor="#7c8961"
-              autoCorrect={false}
-            />
-            <IconButton>
-              <MaterialIcons name="qr-code" size={22} color="#7c8961" />
-            </IconButton>
-          </SearchField>
-        </Section>
+        {!isIOS && <Section>{searchField}</Section>}
 
         <Section>
           <SectionHeader>
@@ -70,12 +84,23 @@ export default function AddFoodScreen(): ReactElement {
         </Section>
       </ScrollView>
       <Footer style={{ paddingBottom: Math.max(bottom + 12, 24) }}>
+        {isIOS && <BottomSearchContainer>{searchField}</BottomSearchContainer>}
         <PrimaryButton>
           <PrimaryButtonLabel>Add Food</PrimaryButtonLabel>
         </PrimaryButton>
       </Footer>
     </Container>
   );
+
+  if (isIOS) {
+    return (
+      <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
+        {content}
+      </KeyboardAvoidingView>
+    );
+  }
+
+  return content;
 }
 
 const Container = styled(View)`
@@ -210,6 +235,7 @@ const Footer = styled(View)`
   padding-horizontal: 16px;
   border-top-width: 1px;
   border-color: #e5e7eb;
+  gap: 16px;
 `;
 
 const PrimaryButton = styled.Pressable`
@@ -230,6 +256,12 @@ const PrimaryButtonLabel = styled.Text`
   font-weight: 700;
   color: #111827;
 `;
+
+const BottomSearchContainer = styled(View)`
+  margin-bottom: 16px;
+`;
+
+
 
 
 

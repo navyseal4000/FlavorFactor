@@ -1,33 +1,33 @@
 import { ReactElement, ReactNode } from 'react';
 import { View } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
 import styled from 'styled-components/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { BottomNav } from '../../../components/navigation/BottomNav';
 
-import { LOG_BACKGROUND, LOG_PRIMARY_COLOR, LogTabKey } from '../constants';
+import { LOG_BACKGROUND, LogTabKey } from '../constants';
 import { LogTopTabs } from './LogTopTabs';
 
 interface LogLayoutProps {
   activeTab: LogTabKey;
   children: ReactNode;
-  headerAction?: () => void;
+  onSelectTab?: (tab: LogTabKey) => void;
 }
 
-export function LogLayout({ activeTab, children, headerAction }: LogLayoutProps): ReactElement {
+export function LogLayout({ activeTab, children, onSelectTab }: LogLayoutProps): ReactElement {
   const { top } = useSafeAreaInsets();
 
   return (
     <ScreenContainer style={{ paddingTop: Math.max(top, 12) }}>
       <Header>
-        <IconButton onPress={headerAction}>
-          <MaterialIcons name="menu" size={24} color="#111827" />
-        </IconButton>
-        <HeaderTitle>Log</HeaderTitle>
-        <View style={{ width: 40 }} />
+        <Spacer />
+      <HeaderTitle>Log</HeaderTitle>
+      <Spacer />
       </Header>
-      <LogTopTabs activeTab={activeTab} />
+      <LogTopTabs
+        activeTab={activeTab}
+        onSelect={onSelectTab}
+      />
       <Content>{children}</Content>
       <BottomNav activeKey="log" />
     </ScreenContainer>
@@ -50,12 +50,9 @@ const Header = styled(View)`
   justify-content: space-between;
 `;
 
-const IconButton = styled.Pressable`
+const Spacer = styled(View)`
   width: 40px;
   height: 40px;
-  border-radius: 20px;
-  align-items: center;
-  justify-content: center;
 `;
 
 const HeaderTitle = styled.Text`

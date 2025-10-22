@@ -27,16 +27,17 @@ const ADDITIONAL_ITEMS = [
 
 export default function LogMealScreen(): ReactElement {
   const router = useRouter();
-  const { bottom } = useSafeAreaInsets();
+  const { top, bottom } = useSafeAreaInsets();
 
   return (
     <Container>
-      <Header>
-        <IconButton onPress={() => router.back()}>
+      <Header style={{ paddingTop: Math.max(top, 16) }}>
+        <BackButton onPress={() => router.back()}>
           <MaterialIcons name="arrow-back" size={22} color="#374151" />
-        </IconButton>
+          <BackLabel>Back</BackLabel>
+        </BackButton>
         <HeaderTitle>Pancake Breakfast</HeaderTitle>
-        <View style={{ width: 40 }} />
+        <View style={{ width: 64 }} />
       </Header>
       <ScrollView contentContainerStyle={{ paddingBottom: bottom + 140 }}>
         <Section>
@@ -119,12 +120,16 @@ const Header = styled(View)`
   border-color: #e5e7eb;
 `;
 
-const IconButton = styled.Pressable`
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
+const BackButton = styled.Pressable`
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+`;
+
+const BackLabel = styled.Text`
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
 `;
 
 const HeaderTitle = styled.Text`

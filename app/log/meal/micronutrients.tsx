@@ -22,16 +22,17 @@ const MINERALS = [
 
 export default function MicronutrientsScreen(): ReactElement {
   const router = useRouter();
-  const { bottom } = useSafeAreaInsets();
+  const { top, bottom } = useSafeAreaInsets();
 
   return (
     <Container>
-      <Header>
-        <IconButton onPress={() => router.back()}>
-          <MaterialIcons name="arrow-back-ios" size={20} color="#111827" />
-        </IconButton>
+      <Header style={{ paddingTop: Math.max(top, 16) }}>
+        <BackButton onPress={() => router.back()}>
+          <MaterialIcons name="arrow-back" size={22} color="#111827" />
+          <BackLabel>Back</BackLabel>
+        </BackButton>
         <HeaderTitle>Micronutrient Breakdown</HeaderTitle>
-        <View style={{ width: 32 }} />
+        <View style={{ width: 64 }} />
       </Header>
       <ScrollView contentContainerStyle={{ paddingBottom: bottom + 48 }}>
         <Section>
@@ -94,11 +95,16 @@ const Header = styled(View)`
   background-color: #ffffff;
 `;
 
-const IconButton = styled.Pressable`
-  width: 36px;
-  height: 36px;
+const BackButton = styled.Pressable`
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+`;
+
+const BackLabel = styled.Text`
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
 `;
 
 const HeaderTitle = styled.Text`
