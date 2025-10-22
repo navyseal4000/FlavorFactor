@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    :root {
+      --primary-color: #a4ec13;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+      font-family: 'Inter', 'Noto Sans', sans-serif;
+    }
+    .scroll-indicator {
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .scroll-indicator.visible {
+      opacity: 1;
+    }
+  </style>
+  </head>
+<body class="bg-gray-50">
+<div data-screen="log-food" class="relative flex size-full min-h-screen flex-col bg-gray-50 justify-between group/design-root overflow-hidden">
+<div class="flex-grow flex flex-col">
+<header class="sticky top-0 bg-white/80 backdrop-blur-md z-10">
+<div class="flex items-center justify-between p-4">
+<button class="text-[#161811] size-10" type="button">
+<span class="material-symbols-outlined">
+              menu
+              </span>
+</button>
+<h1 class="text-[#161811] text-xl font-bold">Log</h1>
+<div class="size-10"></div>
+</div>
+<div class="border-b border-gray-200">
+<div class="flex justify-center px-4 gap-8">
+<a class="flex flex-col items-center justify-center border-b-2 border-b-[#161811] text-[#161811] pb-3 pt-2" href="#">
+<p class="text-sm font-semibold">Food</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-b-transparent text-gray-500 pb-3 pt-2" href="Tracking & Logging - Weight (Interactive).html">
+<p class="text-sm font-semibold">Weight</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-b-transparent text-gray-500 pb-3 pt-2" href="Tracking & Logging - Activity (Interactive).html">
+<p class="text-sm font-semibold">Activity</p>
+</a>
+</div>
+</div>
+</header>
+<main class="flex-grow p-4 space-y-8 overflow-y-auto" id="log-food-main">
+<button class="scroll-indicator fixed top-24 left-1/2 -translate-x-1/2 bg-white/50 backdrop-blur-sm rounded-full p-2 z-20 shadow-md" id="scroll-up" type="button">
+<span class="material-symbols-outlined text-gray-600">keyboard_arrow_up</span>
+</button>
+<section>
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-[#161811] text-lg font-bold">Today</h2>
+<button class="flex items-center gap-2 min-w-[84px] cursor-pointer justify-center rounded-full h-10 px-4 bg-[#a4ec13] text-[#161811] text-sm font-bold leading-normal tracking-wide shadow-sm hover:bg-lime-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-500" data-screen-target="add-food" type="button">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">Add Food</span>
+</button>
+</div>
+<div class="bg-white rounded-xl shadow-sm divide-y divide-gray-100">
+<div class="flex items-center gap-4 p-4 cursor-pointer" data-screen-target="log-meal">
+<div class="text-lime-600 flex items-center justify-center rounded-full bg-lime-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">
+                  egg
+                  </span>
+</div>
+<div class="flex-grow">
+<p class="text-gray-800 font-medium">Breakfast</p>
+<p class="text-gray-500 text-sm">1200 kcal</p>
+</div>
+<span class="material-symbols-outlined text-gray-400">
+                chevron_right
+                </span>
+</div>
+<div class="flex items-center gap-4 p-4 cursor-pointer" data-screen-target="log-meal">
+<div class="text-orange-600 flex items-center justify-center rounded-full bg-orange-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">
+                  lunch_dining
+                  </span>
+</div>
+<div class="flex-grow">
+<p class="text-gray-800 font-medium">Lunch</p>
+<p class="text-gray-500 text-sm">1500 kcal</p>
+</div>
+<span class="material-symbols-outlined text-gray-400">
+                chevron_right
+                </span>
+</div>
+<div class="flex items-center gap-4 p-4 cursor-pointer" data-screen-target="log-meal">
+<div class="text-indigo-600 flex items-center justify-center rounded-full bg-indigo-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">
+                  dinner_dining
+                  </span>
+</div>
+<div class="flex-grow">
+<p class="text-gray-800 font-medium">Dinner</p>
+<p class="text-gray-500 text-sm">1800 kcal</p>
+</div>
+<span class="material-symbols-outlined text-gray-400">
+                chevron_right
+                </span>
+</div>
+<div class="flex items-center gap-4 p-4 cursor-pointer" data-screen-target="log-meal">
+<div class="text-pink-600 flex items-center justify-center rounded-full bg-pink-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">
+                  cookie
+                  </span>
+</div>
+<div class="flex-grow">
+<p class="text-gray-800 font-medium">Snacks</p>
+<p class="text-gray-500 text-sm">200 kcal</p>
+</div>
+<span class="material-symbols-outlined text-gray-400">
+                chevron_right
+                </span>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-[#161811] text-lg font-bold mb-4">Yesterday</h2>
+<div class="bg-white rounded-xl shadow-sm divide-y divide-gray-100">
+<div class="flex items-center gap-4 p-4 cursor-pointer" data-screen-target="log-meal">
+<div class="text-lime-600 flex items-center justify-center rounded-full bg-lime-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">
+                  egg
+                  </span>
+</div>
+<div class="flex-grow">
+<p class="text-gray-800 font-medium">Breakfast</p>
+<p class="text-gray-500 text-sm">1200 kcal</p>
+</div>
+<span class="material-symbols-outlined text-gray-400">
+                chevron_right
+                </span>
+</div>
+<div class="flex items-center gap-4 p-4 cursor-pointer" data-screen-target="log-meal">
+<div class="text-orange-600 flex items-center justify-center rounded-full bg-orange-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">
+                  lunch_dining
+                  </span>
+</div>
+<div class="flex-grow">
+<p class="text-gray-800 font-medium">Lunch</p>
+<p class="text-gray-500 text-sm">1500 kcal</p>
+</div>
+<span class="material-symbols-outlined text-gray-400">
+                chevron_right
+                </span>
+</div>
+<div class="flex items-center gap-4 p-4 cursor-pointer" data-screen-target="log-meal">
+<div class="text-indigo-600 flex items-center justify-center rounded-full bg-indigo-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">
+                  dinner_dining
+                  </span>
+</div>
+<div class="flex-grow">
+<p class="text-gray-800 font-medium">Dinner</p>
+<p class="text-gray-500 text-sm">1800 kcal</p>
+</div>
+<span class="material-symbols-outlined text-gray-400">
+                chevron_right
+                </span>
+</div>
+<div class="flex items-center gap-4 p-4 cursor-pointer" data-screen-target="log-meal">
+<div class="text-pink-600 flex items-center justify-center rounded-full bg-pink-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">
+                  cookie
+                  </span>
+</div>
+<div class="flex-grow">
+<p class="text-gray-800 font-medium">Snacks</p>
+<p class="text-gray-500 text-sm">200 kcal</p>
+</div>
+<span class="material-symbols-outlined text-gray-400">
+                chevron_right
+                </span>
+</div>
+</div>
+</section>
+<button class="scroll-indicator fixed bottom-24 left-1/2 -translate-x-1/2 bg-white/50 backdrop-blur-sm rounded-full p-2 z-20 shadow-md" id="scroll-down" type="button">
+<span class="material-symbols-outlined text-gray-600">keyboard_arrow_down</span>
+</button>
+</main>
+</div>
+<footer class="sticky bottom-0 bg-white/90 backdrop-blur-md border-t border-gray-200">
+<nav class="flex justify-around items-center h-16 px-2">
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500 w-1/5 h-full" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-xs font-medium">Home</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500 w-1/5 h-full" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<p class="text-xs font-medium">Plan</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-[#A4EC13] w-1/5 h-full" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">
+              notebook
+            </span>
+<p class="text-xs font-semibold">Log</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500 w-1/5 h-full" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<p class="text-xs font-medium">Coach</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500 w-1/5 h-full" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-xs font-medium">Profile</p>
+</a>
+</nav>
+<div class="h-safe-area-inset-bottom bg-white"></div>
+</footer>
+</div>
+<div data-screen="add-food" class="relative hidden size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden bg-white">
+<div class="flex-grow">
+<div class="flex items-center bg-white p-4 pb-2 justify-between sticky top-0 z-10">
+<button class="text-[#161811] flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-100" data-screen-target="log-food" type="button">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-[#161811] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">Add Food</h2>
+</div>
+<div class="px-4 py-3">
+<div class="relative">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-full text-[#161811] focus:outline-0 focus:ring-2 focus:ring-[#a4ec13] border-gray-200 bg-[#f3f4f0] h-12 placeholder:text-[#7c8961] pl-12 text-base font-normal leading-normal pr-12" placeholder="Search for food" value=""/>
+<div class="absolute left-4 top-1/2 -translate-y-1/2 text-[#7c8961]" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+</svg>
+</div>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-[#7c8961] hover:text-[#161811]" type="button">
+<span class="material-symbols-outlined">
+                    barcode_scanner
+                </span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between px-4 pt-4 pb-2">
+<h3 class="text-[#161811] text-lg font-bold leading-tight tracking-[-0.015em]">Quick Add</h3>
+<a class="text-sm font-medium text-[#a4ec13] hover:underline" href="#">See all</a>
+</div>
+<div class="flex flex-wrap gap-3 px-4 py-3">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[#f3f4f0] px-4 cursor-pointer hover:bg-gray-200" type="button">
+<p class="text-[#161811] text-sm font-medium leading-normal">Greek yogurt</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[#f3f4f0] px-4 cursor-pointer hover:bg-gray-200" type="button">
+<p class="text-[#161811] text-sm font-medium leading-normal">Banana</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[#f3f4f0] px-4 cursor-pointer hover:bg-gray-200" type="button">
+<p class="text-[#161811] text-sm font-medium leading-normal">Protein bar (Bear Bells)</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[#f3f4f0] px-4 cursor-pointer hover:bg-gray-200" type="button">
+<p class="text-[#161811] text-sm font-medium leading-normal">Cheesecake</p>
+</button>
+</div>
+<div class="flex items-center justify-between px-4 pt-6 pb-2">
+<h3 class="text-[#161811] text-lg font-bold leading-tight tracking-[-0.015em]">Recent</h3>
+<a class="text-sm font-medium text-[#a4ec13] hover:underline" href="#">See all</a>
+</div>
+<div class="divide-y divide-gray-100">
+<div class="flex items-center gap-4 bg-white px-4 py-3 hover:bg-gray-50 cursor-pointer">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBidlx9BB_3mcIks0oe1BPZbrZVtg8TrMA6uM2eres8URY9lD1QrtEPvn73_9S4ayN7TLHeLQpdRMlza2sRfb090ZP6Ak211AWRfQJvoglNSyVZ855zY4eHZkHRaSncidoHYaOhMsw8Nrr31Y0BtIwCz0T9NB5M2-3lkA6bKgPjumoXbMEUoInbWMZhBIzAZkSrawjOoLTEWJkTVG5CesQRFs_5pPEp_sEEr8RtVNvEnrbPvHKFKmHFDpApYmvz7pukAc1HY-9nPZRl");'></div>
+<div class="flex-grow">
+<p class="text-[#161811] text-base font-medium leading-normal line-clamp-1">Oatmeal</p>
+<p class="text-[#7c8961] text-sm font-normal leading-normal line-clamp-2">1 cup, 158 kcal</p>
+</div>
+<button class="text-gray-400 hover:text-[#a4ec13]" type="button">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+</div>
+<div class="flex items-center gap-4 bg-white px-4 py-3 hover:bg-gray-50 cursor-pointer">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDeD8-5rOc5Xy8J39a2fn4C6Ql6OvMElFr7PZah05iWxCNVp9GWRVobWth-YzgYjSXSlNaYnlLuglqqvIGW_VYdOwN9ZRxJ5DCo-363bfKGmgfF-BH9HVQmjhu_kzxrRyjdhf_G4XYUXeay2pRDS3tyUmymhD2klRXLB7_5dx0dFnFtRcog9aUtsjtsO78htTGpbY85qGoP_ulpIh_2V_S54GyA8bUPJEaiDkoIINfrAfIktaDQ9ppu41gOmmEvj0nmp5e6tL7MvvjP");'></div>
+<div class="flex-grow">
+<p class="text-[#161811] text-base font-medium leading-normal line-clamp-1">Greek Yogurt</p>
+<p class="text-[#7c8961] text-sm font-normal leading-normal line-clamp-2">1 cup, 100 kcal</p>
+</div>
+<button class="text-gray-400 hover:text-[#a4ec13]" type="button">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+</div>
+<div class="flex items-center gap-4 bg-white px-4 py-3 hover:bg-gray-50 cursor-pointer">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBZYsBE3f-AJ4j61JxIsROpOBJKNW3IW8prJpcB3dTiKlD9bICtxwVIPzk-lTNkbhrLyHmcqukLS6oZtuFFuHB0QrAqHUS65vXG-aUo3Xn5oh6J5JXoHMQma37orOTxTM3teBojI-U3Eu9Avwo1upQD0_IWfxT-LIAW7QmBpwJVD-gtdHiOr_p9F7GK9yLenUrlTcdlO6BqrRAwkzOaYjGgFwUwb3j1aUN8Y__gOJf5GoMjPuHMEWD1ecLzzQ3XQo_NRbc5lgSWpoxd");'></div>
+<div class="flex-grow">
+<p class="text-[#161811] text-base font-medium leading-normal line-clamp-1">Mixed Berries</p>
+<p class="text-[#7c8961] text-sm font-normal leading-normal line-clamp-2">1 cup, 85 kcal</p>
+</div>
+<button class="text-gray-400 hover:text-[#a4ec13]" type="button">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+</div>
+<div class="flex items-center gap-4 bg-white px-4 py-3 hover:bg-gray-50 cursor-pointer">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCCganoGUShniBAl6uajP0xi0WgJ4HlyQdzg4WZngfATyKNzIlS-tO3dO5AKzsN0nhRKrNBLBdSKpY9_SHtUEWr6Gr2rKZcDrcnVrCzW9kwVNgZ9zuM3dRrEgNfSIIzqUPdiY2BPxkdTv1fhErsX1Mks5dFJevdl1E2GGU5JXNwQrXaDGHV2AeyNp4drVJOAheysemliCzDXPCoF-L9sHKSs6EhCGXcD1a8pkHhoSeKqkUJfXUv_egwgY2qEvltR4P9b_McuxJ-gKQ6");'></div>
+<div class="flex-grow">
+<p class="text-[#161811] text-base font-medium leading-normal line-clamp-1">Almonds</p>
+<p class="text-[#7c8961] text-sm font-normal leading-normal line-clamp-2">1/4 cup, 207 kcal</p>
+</div>
+<button class="text-gray-400 hover:text-[#a4ec13]" type="button">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sticky bottom-0 bg-white/80 backdrop-blur-sm pt-3 pb-5 px-4">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-5 flex-1 bg-[#a4ec13] text-[#161811] text-base font-bold leading-normal tracking-[0.015em] hover:bg-lime-400 shadow-lg shadow-lime-200 w-full" type="button">
+<span class="truncate">Add Food</span>
+</button>
+</div>
+</div>
+</div>
+<div data-screen="log-meal" class="relative hidden size-full min-h-screen flex-col bg-white">
+<header class="sticky top-0 z-10 flex items-center justify-between border-b border-gray-200 bg-white px-4 py-3">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100" data-screen-target="log-food" type="button">
+<span class="material-symbols-outlined text-gray-700">arrow_back</span>
+</button>
+<h1 class="flex-1 text-center text-lg font-bold text-gray-900">Pancake Breakfast</h1>
+<div class="w-10"></div>
+</header>
+<main class="flex-1 overflow-y-auto p-6 pb-32">
+<section class="mb-6">
+<h2 class="text-xl font-bold text-gray-900 mb-4">Macros</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="rounded-lg bg-gray-100 p-4">
+<p class="text-sm font-medium text-gray-600">Protein</p>
+<p class="text-2xl font-bold text-gray-900">20g</p>
+</div>
+<div class="rounded-lg bg-gray-100 p-4">
+<p class="text-sm font-medium text-gray-600">Carbs</p>
+<p class="text-2xl font-bold text-gray-900">50g</p>
+</div>
+<div class="rounded-lg bg-gray-100 p-4">
+<p class="text-sm font-medium text-gray-600">Fat</p>
+<p class="text-2xl font-bold text-gray-900">15g</p>
+</div>
+<div class="rounded-lg bg-gray-100 p-4">
+<p class="text-sm font-medium text-gray-600">Total Calories</p>
+<p class="text-2xl font-bold text-gray-900">450</p>
+</div>
+</div>
+</section>
+<a class="mb-6 flex items-center justify-between rounded-lg border border-gray-200 bg-white p-4 hover:bg-gray-50" data-screen-target="micronutrients" href="#">
+<span class="font-semibold text-gray-900">Micronutrients</span>
+<span class="material-symbols-outlined text-gray-500">chevron_right</span>
+</a>
+<section class="mb-8">
+<h2 class="mb-4 text-xl font-bold text-gray-900">Food Items</h2>
+<div class="space-y-3">
+<details class="group rounded-lg bg-white border border-gray-200" open="">
+<summary class="flex cursor-pointer list-none items-center justify-between p-4">
+<div class="flex items-center gap-4">
+<p class="font-semibold text-gray-800">Pancakes</p>
+<span class="material-symbols-outlined text-gray-400 transition-transform group-open:rotate-90">expand_more</span>
+</div>
+<div class="flex items-center gap-2">
+<input class="w-16 rounded-md border-gray-300 text-right text-sm text-gray-500 focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]" type="number" value="150"/>
+<span class="text-sm text-gray-500">g</span>
+</div>
+</summary>
+<div class="border-t border-gray-200 p-4">
+<p class="mb-3 text-sm text-gray-600">Modify total recipe amount:</p>
+<div class="space-y-3 pl-4">
+<div class="flex items-center justify-between">
+<p class="text-sm text-gray-700">Flour</p>
+<div class="flex items-center gap-2">
+<input class="w-16 rounded-md border-gray-300 text-right text-sm text-gray-500 focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]" type="number" value="200"/>
+<span class="text-sm text-gray-500">g</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-sm text-gray-700">Sugar</p>
+<div class="flex items-center gap-2">
+<input class="w-16 rounded-md border-gray-300 text-right text-sm text-gray-500 focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]" type="number" value="50"/>
+<span class="text-sm text-gray-500">g</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-sm text-gray-700">Butter</p>
+<div class="flex items-center gap-2">
+<input class="w-16 rounded-md border-gray-300 text-right text-sm text-gray-500 focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]" type="number" value="30"/>
+<span class="text-sm text-gray-500">g</span>
+</div>
+</div>
+</div>
+</div>
+</details>
+<div class="flex items-center justify-between rounded-lg bg-white p-4 border border-gray-200">
+<p class="font-semibold text-gray-800">Syrup</p>
+<div class="flex items-center gap-2">
+<input class="w-16 rounded-md border-gray-300 text-right text-sm text-gray-500 focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]" type="number" value="30"/>
+<span class="text-sm text-gray-500">g</span>
+</div>
+</div>
+<div class="flex items-center justify-between rounded-lg bg-white p-4 border border-gray-200">
+<p class="font-semibold text-gray-800">Berries</p>
+<div class="flex items-center gap-2">
+<input class="w-16 rounded-md border-gray-300 text-right text-sm text-gray-500 focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]" type="number" value="50"/>
+<span class="text-sm text-gray-500">g</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="absolute bottom-0 left-0 right-0 border-t border-gray-200 bg-white p-4">
+<div class="grid grid-cols-1 gap-3">
+<button class="flex h-12 items-center justify-center rounded-lg bg-[var(--primary-color)] text-sm font-bold text-gray-900 hover:opacity-90" type="button">
+          Confirm
+        </button>
+<button class="flex h-12 w-full items-center justify-center rounded-lg border border-gray-300 bg-white text-sm font-bold text-gray-800 hover:bg-gray-100" type="button">
+          Track New Food
+        </button>
+</div>
+</footer>
+</div>
+<div data-screen="micronutrients" class="relative hidden size-full min-h-screen flex-col bg-white overflow-x-hidden">
+<header class="sticky top-0 z-10 bg-white shadow-sm">
+<div class="flex items-center p-4">
+<button class="text-[#111827]" data-screen-target="log-meal" type="button">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-lg font-bold text-center flex-1 text-[#111827]">Micronutrient Breakdown</h1>
+<div class="w-8"></div> 
+</div>
+</header>
+<main class="flex-1 overflow-y-auto p-4 space-y-6">
+<section>
+<h2 class="text-xl font-bold text-[#111827] mb-4">Vitamins</h2>
+<div class="space-y-4">
+<div class="grid grid-cols-3 items-center gap-4">
+<span class="text-sm font-medium text-[#6B7280] col-span-1">Vitamin A</span>
+<div class="col-span-2">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-medium text-[#111827]">150 mcg</span>
+<span class="text-sm font-medium text-[#6B7280]">17% DV</span>
+</div>
+<div class="w-full bg-[#E5E7EB] rounded-full h-2">
+<div class="bg-[#a4ec13] h-2 rounded-full" style="width: 17%"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 items-center gap-4">
+<span class="text-sm font-medium text-[#6B7280] col-span-1">Vitamin C</span>
+<div class="col-span-2">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-medium text-[#111827]">5 mg</span>
+<span class="text-sm font-medium text-[#6B7280]">6% DV</span>
+</div>
+<div class="w-full bg-[#E5E7EB] rounded-full h-2">
+<div class="bg-[#a4ec13] h-2 rounded-full" style="width: 6%"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 items-center gap-4">
+<span class="text-sm font-medium text-[#6B7280] col-span-1">Vitamin D</span>
+<div class="col-span-2">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-medium text-[#111827]">1 mcg</span>
+<span class="text-sm font-medium text-[#6B7280]">5% DV</span>
+</div>
+<div class="w-full bg-[#E5E7EB] rounded-full h-2">
+<div class="bg-[#a4ec13] h-2 rounded-full" style="width: 5%"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 items-center gap-4">
+<span class="text-sm font-medium text-[#6B7280] col-span-1">Vitamin E</span>
+<div class="col-span-2">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-medium text-[#111827]">1 mg</span>
+<span class="text-sm font-medium text-[#6B7280]">7% DV</span>
+</div>
+<div class="w-full bg-[#E5E7EB] rounded-full h-2">
+<div class="bg-[#a4ec13] h-2 rounded-full" style="width: 7%"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 items-center gap-4">
+<span class="text-sm font-medium text-[#6B7280] col-span-1">Vitamin K</span>
+<div class="col-span-2">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-medium text-[#111827]">10 mcg</span>
+<span class="text-sm font-medium text-[#6B7280]">8% DV</span>
+</div>
+<div class="w-full bg-[#E5E7EB] rounded-full h-2">
+<div class="bg-[#a4ec13] h-2 rounded-full" style="width: 8%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-xl font-bold text-[#111827] mb-4">Minerals</h2>
+<div class="space-y-4">
+<div class="grid grid-cols-3 items-center gap-4">
+<span class="text-sm font-medium text-[#6B7280] col-span-1">Calcium</span>
+<div class="col-span-2">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-medium text-[#111827]">100 mg</span>
+<span class="text-sm font-medium text-[#6B7280]">8% DV</span>
+</div>
+<div class="w-full bg-[#E5E7EB] rounded-full h-2">
+<div class="bg-[#a4ec13] h-2 rounded-full" style="width: 8%"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 items-center gap-4">
+<span class="text-sm font-medium text-[#6B7280] col-span-1">Iron</span>
+<div class="col-span-2">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-medium text-[#111827]">1 mg</span>
+<span class="text-sm font-medium text-[#6B7280]">6% DV</span>
+</div>
+<div class="w-full bg-[#E5E7EB] rounded-full h-2">
+<div class="bg-[#a4ec13] h-2 rounded-full" style="width: 6%"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 items-center gap-4">
+<span class="text-sm font-medium text-[#6B7280] col-span-1">Magnesium</span>
+<div class="col-span-2">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-medium text-[#111827]">10 mg</span>
+<span class="text-sm font-medium text-[#6B7280]">2% DV</span>
+</div>
+<div class="w-full bg-[#E5E7EB] rounded-full h-2">
+<div class="bg-[#a4ec13] h-2 rounded-full" style="width: 2%"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 items-center gap-4">
+<span class="text-sm font-medium text-[#6B7280] col-span-1">Sodium</span>
+<div class="col-span-2">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-medium text-[#111827]">200 mg</span>
+<span class="text-sm font-medium text-[#6B7280]">9% DV</span>
+</div>
+<div class="w-full bg-[#E5E7EB] rounded-full h-2">
+<div class="bg-[#a4ec13] h-2 rounded-full" style="width: 9%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-white p-4 border-t border-[#E5E7EB]">
+<p class="text-[#6B7280] text-xs font-normal leading-normal text-center">
+        *Daily Value (DV) based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs.
+      </p>
+</footer>
+</div>
+<script>
+    const screens = document.querySelectorAll('[data-screen]');
+    const buttons = document.querySelectorAll('[data-screen-target]');
+    const screenMap = {};
+    screens.forEach((screen) => {
+        screenMap[screen.dataset.screen] = screen;
+    });
+
+    function showScreen(name) {
+        Object.entries(screenMap).forEach(([key, element]) => {
+            element.classList.toggle('hidden', key !== name);
+        });
+        if (name === 'log-food') {
+            setTimeout(setupLogFoodScrollIndicators, 0);
+        }
+        window.scrollTo({ top: 0 });
+    }
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            const { screenTarget } = button.dataset;
+            if (screenTarget && screenMap[screenTarget]) {
+                event.preventDefault();
+                showScreen(screenTarget);
+            }
+        });
+    });
+
+    const logFoodMain = document.getElementById('log-food-main');
+    const scrollUpButton = document.getElementById('scroll-up');
+    const scrollDownButton = document.getElementById('scroll-down');
+    let logFoodScrollConfigured = false;
+
+    function updateLogFoodScrollIndicators() {
+        if (!logFoodMain || !scrollUpButton || !scrollDownButton) {
+            return;
+        }
+        const canScrollUp = logFoodMain.scrollTop > 0;
+        const canScrollDown = logFoodMain.scrollHeight > logFoodMain.clientHeight && logFoodMain.scrollTop < logFoodMain.scrollHeight - logFoodMain.clientHeight;
+        scrollUpButton.classList.toggle('visible', canScrollUp);
+        scrollDownButton.classList.toggle('visible', canScrollDown);
+    }
+
+    function setupLogFoodScrollIndicators() {
+        if (!logFoodMain || !scrollUpButton || !scrollDownButton) {
+            return;
+        }
+        if (!logFoodScrollConfigured) {
+            logFoodMain.addEventListener('scroll', updateLogFoodScrollIndicators);
+            scrollUpButton.addEventListener('click', () => logFoodMain.scrollTo({ top: 0, behavior: 'smooth' }));
+            scrollDownButton.addEventListener('click', () => logFoodMain.scrollTo({ top: logFoodMain.scrollHeight, behavior: 'smooth' }));
+            logFoodScrollConfigured = true;
+        }
+        updateLogFoodScrollIndicators();
+    }
+
+    showScreen('log-food');
+    setupLogFoodScrollIndicators();
+</script>
+</body></html>

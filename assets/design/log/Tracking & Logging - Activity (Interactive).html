@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+      font-family: 'Inter', 'Noto Sans', sans-serif;
+    }
+    .scroll-indicator {
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .scroll-indicator.visible {
+      opacity: 1;
+    }
+  </style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mainContent = document.querySelector('main');
+      const scrollUp = document.getElementById('scroll-up');
+      const scrollDown = document.getElementById('scroll-down');
+      function updateScrollIndicators() {
+        const canScrollUp = mainContent.scrollTop > 0;
+        const canScrollDown = mainContent.scrollHeight > mainContent.clientHeight && mainContent.scrollTop < mainContent.scrollHeight - mainContent.clientHeight;
+        scrollUp.classList.toggle('visible', canScrollUp);
+        scrollDown.classList.toggle('visible', canScrollDown);
+      }
+      mainContent.addEventListener('scroll', updateScrollIndicators);
+      scrollUp.addEventListener('click', () => {
+        mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      scrollDown.addEventListener('click', () => {
+        mainContent.scrollTo({ top: mainContent.scrollHeight, behavior: 'smooth' });
+      });
+      updateScrollIndicators();
+    });
+  </script>
+  </head>
+<body class="bg-gray-50">
+<div class="relative flex size-full min-h-screen flex-col bg-gray-50 justify-between group/design-root overflow-hidden">
+<div class="flex-grow flex flex-col">
+<header class="sticky top-0 bg-white/80 backdrop-blur-md z-10">
+<div class="flex items-center justify-between p-4">
+<div class="size-10"></div>
+<h1 class="text-[#161811] text-xl font-bold">Log</h1>
+<div class="size-10"></div>
+</div>
+<div class="border-b border-gray-200">
+<div class="flex justify-center px-4 gap-8">
+<a class="flex flex-col items-center justify-center border-b-2 border-b-transparent text-gray-500 pb-3 pt-2" href="Log Food (Interactive).html">
+<p class="text-sm font-semibold">Food</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-b-transparent text-gray-500 pb-3 pt-2" href="Tracking & Logging - Weight (Interactive).html">
+<p class="text-sm font-semibold">Weight</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-b-[#161811] text-[#161811] pb-3 pt-2" href="#">
+<p class="text-sm font-semibold">Activity</p>
+</a>
+</div>
+</div>
+</header>
+<main class="flex-grow p-4 space-y-8 overflow-y-auto">
+<button class="scroll-indicator fixed top-24 left-1/2 -translate-x-1/2 bg-white/50 backdrop-blur-sm rounded-full p-2 z-20 shadow-md" id="scroll-up" type="button">
+<span class="material-symbols-outlined text-gray-600">keyboard_arrow_up</span>
+</button>
+<section>
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-[#161811] text-lg font-bold">Today</h2>
+<button class="flex items-center gap-2 min-w-[84px] cursor-pointer justify-center rounded-full h-10 px-4 bg-[#a4ec13] text-[#161811] text-sm font-bold leading-normal tracking-wide shadow-sm hover:bg-lime-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-500" type="button">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">Add Activity</span>
+</button>
+</div>
+<div class="bg-white rounded-xl shadow-sm">
+<div class="p-4 space-y-4">
+<div class="flex items-center gap-4">
+<div class="text-orange-600 flex items-center justify-center rounded-full bg-orange-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">
+                  directions_run
+                  </span>
+</div>
+<div class="flex-grow">
+<p class="text-gray-800 font-medium">Running</p>
+<p class="text-gray-500 text-sm">30 min - 300 kcal</p>
+</div>
+<span class="material-symbols-outlined text-gray-400">
+                chevron_right
+                </span>
+</div>
+</div>
+<div class="border-t border-gray-100 p-4 space-y-2">
+<h3 class="text-gray-500 text-sm font-medium">Synced Data</h3>
+<div class="flex items-center gap-4">
+<div class="text-blue-600 flex items-center justify-center rounded-full bg-blue-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">
+                    footprint
+                  </span>
+</div>
+<div class="flex-grow">
+<p class="text-gray-800 font-medium">Steps</p>
+<p class="text-gray-500 text-sm">12,345 steps</p>
+</div>
+<div class="text-gray-800 font-medium">185 kcal</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-[#161811] text-lg font-bold mb-4">Weekly Summary</h2>
+<div class="bg-white rounded-xl shadow-sm p-4 space-y-6">
+<div class="flex justify-between items-center">
+<div>
+<p class="text-gray-500 text-sm font-medium">Total Calories Burned</p>
+<p class="text-2xl font-bold text-gray-900">2,430</p>
+</div>
+<span class="flex items-center gap-1 text-sm font-semibold text-green-600">
+<span class="material-symbols-outlined text-base">trending_up</span>
+              8%
+            </span>
+</div>
+<div class="h-40">
+<svg fill="none" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 472 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient gradientUnits="userSpaceOnUse" id="activity-gradient" x1="0" x2="0" y1="0" y2="150">
+<stop stop-color="#a4ec13" stop-opacity="0.3"></stop>
+<stop offset="1" stop-color="#a4ec13" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+<path d="M0 110C39.3333 110 39.3333 90 78.6667 90C118 90 118 60 157.333 60C196.667 60 196.667 105 236 105C275.333 105 275.333 70 314.667 70C354 70 354 45 393.333 45C432.667 45 432.667 85 472 85V150H0V110Z" fill="url(#activity-gradient)"></path>
+<path d="M0 110C39.3333 110 39.3333 90 78.6667 90C118 90 118 60 157.333 60C196.667 60 196.667 105 236 105C275.333 105 275.333 70 314.667 70C354 70 354 45 393.333 45C432.667 45 432.667 85 472 85" stroke="#a4ec13" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<div class="grid grid-cols-3 gap-4 text-center">
+<div class="rounded-lg bg-gray-100 p-3">
+<p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Mon</p>
+<p class="text-lg font-semibold text-gray-900">320 kcal</p>
+</div>
+<div class="rounded-lg bg-gray-100 p-3">
+<p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Tue</p>
+<p class="text-lg font-semibold text-gray-900">280 kcal</p>
+</div>
+<div class="rounded-lg bg-gray-100 p-3">
+<p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Wed</p>
+<p class="text-lg font-semibold text-gray-900">410 kcal</p>
+</div>
+<div class="rounded-lg bg-gray-100 p-3">
+<p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Thu</p>
+<p class="text-lg font-semibold text-gray-900">360 kcal</p>
+</div>
+<div class="rounded-lg bg-gray-100 p-3">
+<p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Fri</p>
+<p class="text-lg font-semibold text-gray-900">400 kcal</p>
+</div>
+<div class="rounded-lg bg-gray-100 p-3">
+<p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Sat</p>
+<p class="text-lg font-semibold text-gray-900">480 kcal</p>
+</div>
+<div class="rounded-lg bg-gray-100 p-3 col-span-3">
+<p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Sun</p>
+<p class="text-lg font-semibold text-gray-900">280 kcal</p>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-[#161811] text-lg font-bold mb-4">Add New Activity</h2>
+<div class="bg-white rounded-xl shadow-sm p-4 space-y-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+              search
+            </span>
+<input class="w-full h-12 pl-10 pr-4 rounded-lg border border-gray-300 focus:ring-lime-500 focus:border-lime-500" placeholder="Search for an activity..." type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="text-gray-700 text-sm font-medium" for="duration">Duration (min)</label>
+<input class="w-full h-12 px-4 mt-1 rounded-lg border border-gray-300 focus:ring-lime-500 focus:border-lime-500" id="duration" type="number" value="30"/>
+</div>
+<div>
+<label class="text-gray-700 text-sm font-medium" for="intensity">Intensity</label>
+<select class="w-full h-12 px-4 mt-1 rounded-lg border border-gray-300 focus:ring-lime-500 focus:border-lime-500" id="intensity">
+<option>Low</option>
+<option selected="">Medium</option>
+<option>High</option>
+</select>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 h-12 px-6 bg-[#a4ec13] text-[#161811] text-base font-bold rounded-lg shadow-sm hover:bg-lime-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-500" type="button">Log Activity</button>
+</div>
+</section>
+<section>
+<h2 class="text-[#161811] text-lg font-bold mb-4">Yesterday</h2>
+<div class="bg-white rounded-xl shadow-sm">
+<div class="p-4 space-y-4">
+<div class="flex items-center gap-4">
+<div class="text-purple-600 flex items-center justify-center rounded-full bg-purple-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">
+                  fitness_center
+                  </span>
+</div>
+<div class="flex-grow">
+<p class="text-gray-800 font-medium">Weight Training</p>
+<p class="text-gray-500 text-sm">60 min - 450 kcal</p>
+</div>
+<span class="material-symbols-outlined text-gray-400">
+                chevron_right
+                </span>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-teal-600 flex items-center justify-center rounded-full bg-teal-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">
+                  pool
+                  </span>
+</div>
+<div class="flex-grow">
+<p class="text-gray-800 font-medium">Swimming</p>
+<p class="text-gray-500 text-sm">45 min - 400 kcal</p>
+</div>
+<span class="material-symbols-outlined text-gray-400">
+                chevron_right
+                </span>
+</div>
+</div>
+<div class="border-t border-gray-100 p-4 space-y-2">
+<h3 class="text-gray-500 text-sm font-medium">Synced Data</h3>
+<div class="flex items-center gap-4">
+<div class="text-blue-600 flex items-center justify-center rounded-full bg-blue-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">
+                    footprint
+                  </span>
+</div>
+<div class="flex-grow">
+<p class="text-gray-800 font-medium">Steps</p>
+<p class="text-gray-500 text-sm">10,234 steps</p>
+</div>
+<div class="text-gray-800 font-medium">155 kcal</div>
+</div>
+</div>
+</div>
+</section>
+<button class="scroll-indicator fixed bottom-24 left-1/2 -translate-x-1/2 bg-white/50 backdrop-blur-sm rounded-full p-2 z-20 shadow-md" id="scroll-down" type="button">
+<span class="material-symbols-outlined text-gray-600">keyboard_arrow_down</span>
+</button>
+</main>
+</div>
+<footer class="sticky bottom-0 bg-white/90 backdrop-blur-md border-t border-gray-200">
+<nav class="flex justify-around items-center h-16 px-2">
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500 w-1/5 h-full" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-xs font-medium">Home</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500 w-1/5 h-full" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<p class="text-xs font-medium">Plan</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-[#A4EC13] w-1/5 h-full" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">
+              notebook
+            </span>
+<p class="text-xs font-semibold">Log</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500 w-1/5 h-full" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<p class="text-xs font-medium">Coach</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-gray-500 w-1/5 h-full" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-xs font-medium">Profile</p>
+</a>
+</nav>
+<div class="h-safe-area-inset-bottom bg-white"></div>
+</footer>
+</div>
+</body></html>
