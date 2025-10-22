@@ -1,11 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import { createDesignScreen } from '@modules/design';
+import { ReactElement } from 'react';
 
-export default createDesignScreen(
-  require('../../assets/design/plan/Pantry View.html'),
-  'Pantry View',
-  {
-    fallbackImage: require('../../assets/design/plan/Pantry View.png'),
-    description: 'Inventory of pantry items to guide shopping.',
-  },
-);
+import { PlanTabsScreen } from '../../src/features/plan/screens/PlanTabsScreen';
+
+export default function PlanPantryRoute(): ReactElement {
+  return <PlanTabsScreen initialTab="pantry" />;
+}

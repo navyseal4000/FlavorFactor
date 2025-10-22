@@ -9,6 +9,7 @@ import './setupTesting';
 import { designManifest } from '@modules/design/manifest';
 
 import { runProfileScreenTests } from './profileScreens.test';
+import { runPlanFeatureTests } from './planFeature.test';
 
 const root = join(__dirname, '..');
 
@@ -49,3 +50,7 @@ for (const entry of designManifest) {
 
 console.info(`Verified ${designManifest.length} design entries.`);
 runProfileScreenTests();
+
+runPlanFeatureTests();
+
+console.info('Plan feature smoke tests passed.');
