@@ -8,7 +8,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   scheme: Env.BUNDLE_ID,
   name: Env.NAME,
   description: `${Env.NAME} Mobile App`,
-  slug: 'expo-supabase-social-auth',
+  slug: 'flavor-factor',
   version: Env.VERSION.toString(),
   orientation: 'portrait',
   icon: path.resolve(__dirname, 'src/assets/images/icon.png'),
