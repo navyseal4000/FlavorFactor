@@ -3,9 +3,11 @@ import { createDesignScreen } from '@modules/design';
 
 export default createDesignScreen(
   require('../../assets/design/onboarding/Onboarding - Generate Plan.html'),
-  'Onboarding – Generate Plan',
+  'Onboarding - Generate Plan',
   {
     fallbackImage: require('../../assets/design/onboarding/Onboarding - Generate Plan.png'),
     description: 'Summary view before generating a personalised plan.',
+    nextRoute: '/home/',
+    nextLabel: 'Finish',
   },
 );

@@ -1,12 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
-import { ActivityIndicator, Image, ScrollView, StyleSheet, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { Asset } from 'expo-asset';
 import WebViewComponent from 'react-native-webview';
+import { useRouter } from 'expo-router';
 
 import { Button } from '@common/interaction';
 import { Text } from '@common/typography';
-
-export type DesignPreviewMode = 'html' | 'image';
 
 export type DesignPreviewProps = {
   /**
@@ -16,8 +15,7 @@ export type DesignPreviewProps = {
    */
   asset: number;
   /**
-   * Optional static PNG screenshot of the screen. When provided, users can
-   * switch between the HTML prototype and the screenshot representation.
+   * Optional static PNG screenshot of the screen. Currently unused now that we always render HTML.
    */
   fallbackImage?: number;
   /**
@@ -30,24 +28,46 @@ export type DesignPreviewProps = {
    * prototype.
    */
   description?: string;
+  /**
+   * When provided, renders a footer button that navigates to the supplied route.
+   */
+  nextRoute?: string;
+  /**
+   * Custom label for the footer button when `nextRoute` is present.
+   */
+  nextLabel?: string;
 };
 
 /**
  * DesignPreview renders HTML prototypes that were exported from the design
- * team. The component downloads the static asset, exposes an optional PNG
- * fallback, and surfaces a toggle so that contributors can switch between
- * different representations of the same UI concept.
+ * team. The component downloads the static asset and presents it in a WebView.
  */
 export function DesignPreview({
   asset,
-  fallbackImage,
+  fallbackImage: _fallbackImage,
   title,
   description,
+  nextRoute,
+  nextLabel,
 }: DesignPreviewProps) {
-  const [mode, setMode] = useState<DesignPreviewMode>('html');
   const [uri, setUri] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isNavigating, setIsNavigating] = useState(false);
+  const router = useRouter();
+
+  function handleContinue() {
+    if (!nextRoute || isNavigating) return;
+
+    setIsNavigating(true);
+    Promise.resolve(router.replace(nextRoute))
+      .catch((navigationError) => {
+        console.error('Failed to navigate to next onboarding step', navigationError);
+      })
+      .finally(() => {
+        setIsNavigating(false);
+      });
+  }
 
   useEffect(() => {
     let isMounted = true;
@@ -83,16 +103,6 @@ export function DesignPreview({
     };
   }, [asset]);
 
-  useEffect(() => {
-    if (mode === 'image' && !fallbackImage) {
-      setMode('html');
-    }
-  }, [mode, fallbackImage]);
-
-  const toggleLabel = useMemo(() => {
-    return mode === 'html' ? 'View Screenshot' : 'View Interactive Mock';
-  }, [mode]);
-
   return (
     <View style={styles.screen}>
       <View style={styles.header}>
@@ -111,17 +121,6 @@ export function DesignPreview({
             {description}
           </Text>
         ) : null}
-        {fallbackImage ? (
-          <Button
-            variant="secondary"
-            style={styles.toggleButton}
-            onPress={() => {
-              setMode((prev) => (prev === 'html' ? 'image' : 'html'));
-            }}
-          >
-            {toggleLabel}
-          </Button>
-        ) : null}
       </View>
       <View style={styles.previewArea}>
         {isLoading ? (
@@ -137,31 +136,7 @@ export function DesignPreview({
             >
               {`Unable to load the prototype.\n${error}`}
             </Text>
-            {fallbackImage ? (
-              <Button
-                style={styles.retryButton}
-                variant="secondary"
-                onPress={() => {
-                  setMode('image');
-                }}
-              >
-                View Screenshot
-              </Button>
-            ) : null}
           </View>
-        ) : mode === 'image' && fallbackImage ? (
-          <ScrollView
-            contentContainerStyle={styles.imageScrollContent}
-            style={styles.flex}
-            maximumZoomScale={3}
-            minimumZoomScale={1}
-          >
-            <Image
-              source={fallbackImage}
-              resizeMode="contain"
-              style={styles.image}
-            />
-          </ScrollView>
         ) : uri ? (
           <WebViewComponent
             source={{ uri }}
@@ -180,6 +155,18 @@ export function DesignPreview({
           </View>
         )}
       </View>
+      {nextRoute ? (
+        <View style={styles.footer}>
+          <Button
+            onPress={handleContinue}
+            isDisabled={isLoading || isNavigating}
+            isLoading={isNavigating}
+            style={styles.footerButton}
+          >
+            {nextLabel || 'Continue'}
+          </Button>
+        </View>
+      ) : null}
     </View>
   );
 }
@@ -200,30 +187,23 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 16,
   },
-  image: {
-    aspectRatio: 9 / 16,
-    width: '100%',
-  },
-  imageScrollContent: {
-    alignItems: 'center',
-    flexGrow: 1,
-    justifyContent: 'center',
-    padding: 16,
-  },
   previewArea: {
     borderTopColor: '#E2E8F0',
     borderTopWidth: StyleSheet.hairlineWidth,
     flex: 1,
   },
-  retryButton: {
-    marginTop: 16,
+  footer: {
+    backgroundColor: '#FFFFFF',
+    borderTopColor: '#E2E8F0',
+    borderTopWidth: StyleSheet.hairlineWidth,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+  },
+  footerButton: {
+    width: '100%',
   },
   screen: {
     backgroundColor: '#FFFFFF',
     flex: 1,
-  },
-  toggleButton: {
-    alignSelf: 'flex-start',
-    marginTop: 16,
   },
 });

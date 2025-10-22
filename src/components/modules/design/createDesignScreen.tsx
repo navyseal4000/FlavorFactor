@@ -10,7 +10,7 @@ import { DesignPreview, DesignPreviewProps } from './DesignPreview';
 export function createDesignScreen(
   asset: DesignPreviewProps['asset'],
   title: DesignPreviewProps['title'],
-  options: Pick<DesignPreviewProps, 'fallbackImage' | 'description'> = {},
+  options: Pick<DesignPreviewProps, 'fallbackImage' | 'description' | 'nextRoute' | 'nextLabel'> = {},
 ): ComponentType {
   const Screen = () => (
     <DesignPreview
@@ -18,6 +18,8 @@ export function createDesignScreen(
       title={title}
       fallbackImage={options.fallbackImage}
       description={options.description}
+      nextRoute={options.nextRoute}
+      nextLabel={options.nextLabel}
     />
   );
 

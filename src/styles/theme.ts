@@ -1,5 +1,3 @@
-import 'styled-components';
-
 const theme = {
   colors: {
     primary: '#61C4E3',

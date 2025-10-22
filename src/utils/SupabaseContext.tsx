@@ -10,10 +10,21 @@ import { supabase } from './supabase';
 
 type UserType = i.User | null | undefined;
 
+type PendingProfile = {
+  email: string;
+  authUserId: string | null;
+};
+
 type SupabaseContextProps = {
   loggedIn: boolean;
   user: UserType;
+  pendingProfile: PendingProfile | null;
   signOut: () => Promise<void>;
+  signInWithEmail: (params: { email: string; password: string }) => Promise<void>;
+  signUpWithEmail: (
+    params: { email: string; password: string },
+  ) => Promise<{ needsVerification: boolean }>;
+  completeProfile: (params: { name: string }) => Promise<void>;
   getAppleOAuthUrl: () => Promise<string | null>;
   getGoogleOAuthUrl: () => Promise<string | null>;
   setOAuthSession: (tokens: { access_token: string; refresh_token: string }) => Promise<void>;
@@ -26,8 +37,18 @@ function notImplemented(method: string): never {
 export const SupabaseContext = createContext<SupabaseContextProps>({
   loggedIn: false,
   user: null,
+  pendingProfile: null,
   signOut: async () => {
     notImplemented('signOut');
+  },
+  signInWithEmail: async () => {
+    notImplemented('signInWithEmail');
+  },
+  signUpWithEmail: async () => {
+    notImplemented('signUpWithEmail');
+  },
+  completeProfile: async () => {
+    notImplemented('completeProfile');
   },
   getAppleOAuthUrl: async () => {
     notImplemented('getAppleOAuthUrl');
@@ -44,50 +65,82 @@ export function useSupabase() {
   return useContext(SupabaseContext);
 }
 
-function useProtectedRoute(user: UserType) {
+function useProtectedRoute(user: UserType, pendingProfile: PendingProfile | null, loggedIn: boolean) {
   const segments = useSegments();
   const router = useRouter();
 
   useEffect(() => {
-    if (user === undefined) return;
+    if (user === undefined && !pendingProfile && !loggedIn) return;
 
     const rootSegment = segments[0];
-    const isAppDir = rootSegment === undefined;
+    const isAuthRoot = rootSegment === undefined;
+    const isOnboarding = rootSegment === 'onboarding';
+    const isCompleteProfile = isOnboarding && segments[1] === 'complete-profile';
 
-    // If the user is not signed in, and not on signin page
+    if (!loggedIn) {
+      if (!isAuthRoot) {
+        router.replace('/');
+      }
+      return;
+    }
+
     if (!user) {
-      router.replace('/');
-    } else if (user && isAppDir) {
+      if (pendingProfile) {
+        if (!isCompleteProfile) {
+          router.replace('/onboarding/complete-profile');
+        }
+      } else if (!isAuthRoot) {
+        router.replace('/');
+      }
+
+      return;
+    }
+
+    if (isAuthRoot) {
       router.replace('/home/');
     }
-  }, [user, segments]);
+  }, [user, pendingProfile, loggedIn, segments]);
 }
 
 export const SupabaseProvider = ({ children }: SupabaseProviderProps) => {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const [user, setUser] = useState<UserType>(undefined);
+  const [pendingProfile, setPendingProfile] = useState<PendingProfile | null>(null);
 
   async function getSupabaseUser(token: string) {
-    const decodedToken = jwt_decode(token) as JwtPayload;
+    const decodedToken = jwt_decode(token) as JwtPayload & {
+      email: string;
+      name?: string | null;
+      sub?: string;
+    };
     const email = decodedToken.email;
-    const name = decodedToken.name;
+    const name = decodedToken.name ?? '';
+    const authUserId = typeof decodedToken.sub === 'string' ? decodedToken.sub : null;
 
     // Fetch the user from Supabase, if not existing, create a new user
-    const data = await getUserByEmail(email);
+    const existingUser = await getUserByEmail(email);
 
-    if (data) {
-      setUser(data);
-    } else if (!data) {
-      const { data: newUser, error: newUserError } = await createUser({
-        email,
-        name,
-      });
+    if (existingUser) {
+      setUser(existingUser);
+      setPendingProfile(null);
+      return;
+    }
 
-      if (newUser && !newUserError) {
-        setUser(newUser);
-      } else if (newUserError) {
-        console.error('Error creating new user', { newUserError });
-      }
+    setUser(null);
+    setPendingProfile((current) => current ?? { email, authUserId });
+
+    if (!name) return;
+
+    const { data: newUser, error: newUserError } = await createUser({
+      email,
+      name,
+    });
+
+    if (newUser && !newUserError) {
+      setUser(newUser);
+      setPendingProfile(null);
+    } else if (newUserError) {
+      console.error('Error creating new user', { newUserError });
     }
   }
 
@@ -104,6 +157,46 @@ export const SupabaseProvider = ({ children }: SupabaseProviderProps) => {
       }
     })();
   }, []);
+
+  async function signInWithEmail({ email, password }: { email: string; password: string }) {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) throw error;
+    if (!data.session?.access_token) {
+      throw new Error('Unable to retrieve session from Supabase.');
+    }
+
+    await getSupabaseUser(data.session.access_token);
+    setLoggedIn(true);
+  }
+
+  async function signUpWithEmail({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }): Promise<{ needsVerification: boolean }> {
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+    });
+
+    if (error) throw error;
+
+    if (data.session?.access_token) {
+      await getSupabaseUser(data.session.access_token);
+      setLoggedIn(true);
+      return { needsVerification: false };
+    }
+
+    setLoggedIn(false);
+    setUser(null);
+    return { needsVerification: true };
+  }
 
   async function getAppleOAuthUrl(): Promise<string | null> {
     const result = await supabase.auth.signInWithOAuth({
@@ -144,18 +237,48 @@ export const SupabaseProvider = ({ children }: SupabaseProviderProps) => {
     const { error } = await supabase.auth.signOut();
     setUser(null);
     setLoggedIn(false);
+    setPendingProfile(null);
 
     if (error) throw error;
   }
 
-  useProtectedRoute(user);
+  async function completeProfile({ name }: { name: string }) {
+    if (!pendingProfile) throw new Error('No pending profile to complete.');
+
+    const { data, error } = await createUser({
+      email: pendingProfile.email,
+      name,
+    });
+
+    if (error) throw error;
+    if (!data) throw new Error('Unable to create user profile.');
+
+    const { error: updateError } = await supabase.auth.updateUser({
+      data: {
+        full_name: name,
+      },
+    });
+
+    if (updateError) {
+      console.error('Error updating auth profile with name', { updateError });
+    }
+
+    setUser(data);
+    setPendingProfile(null);
+  }
+
+  useProtectedRoute(user, pendingProfile, loggedIn);
 
   return (
     <SupabaseContext.Provider
       value={{
         loggedIn,
         user,
+        pendingProfile,
         signOut,
+        signInWithEmail,
+        signUpWithEmail,
+        completeProfile,
         getAppleOAuthUrl,
         getGoogleOAuthUrl,
         setOAuthSession,
@@ -173,6 +296,7 @@ type SupabaseProviderProps = {
 declare module 'jwt-decode' {
   export interface JwtPayload {
     email: string;
-    name: string;
+    name?: string | null;
+    sub: string;
   }
 }
