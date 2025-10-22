@@ -1,11 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import { createDesignScreen } from '@modules/design';
+import { ReactElement } from 'react';
 
-export default createDesignScreen(
-  require('../../assets/design/plan/Plan & Shop Dashboard - Daily.html'),
-  'Plan & Shop Dashboard – Daily',
-  {
-    fallbackImage: require('../../assets/design/plan/Plan & Shop Dashboard - Daily.png'),
-    description: 'Day level meal plan overview.',
-  },
-);
+import { PlanTabsScreen } from '../../src/features/plan/screens/PlanTabsScreen';
+
+export default function PlanDailyRoute(): ReactElement {
+  return <PlanTabsScreen initialTab="daily" />;
+}
