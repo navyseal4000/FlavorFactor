@@ -47,7 +47,7 @@ const IntroSection = styled(View)`
 const IntroHeading = styled.Text`
   font-size: 22px;
   font-weight: 700;
-  color: ${PLAN_PRIMARY_COLOR};
+  color: ${({ theme }) => theme.colors.black};
 `;
 
 const IntroSubheading = styled.Text`

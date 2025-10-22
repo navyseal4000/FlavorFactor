@@ -59,7 +59,7 @@ const Section = styled(View)`
 const SectionTitle = styled.Text`
   font-size: 18px;
   font-weight: 700;
-  color: ${PLAN_PRIMARY_COLOR};
+  color: ${({ theme }) => theme.colors.black};
   margin-bottom: 16px;
 `;
 

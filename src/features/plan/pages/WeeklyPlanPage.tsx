@@ -11,13 +11,6 @@ import { weeklyMealPlan } from '../mockData';
 export function WeeklyPlanPage(): ReactElement {
   return (
     <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
-      <IntroSection>
-        <IntroHeading>This Week&apos;s Overview</IntroHeading>
-        <IntroSubheading>
-          A snapshot of the meals queued for the upcoming week. Tap a day to
-          review recipes and prep guidance.
-        </IntroSubheading>
-      </IntroSection>
       {weeklyMealPlan.map((day) => (
         <DayCard key={day.id}>
           <DayHeader>
@@ -38,35 +31,20 @@ export function WeeklyPlanPage(): ReactElement {
   );
 }
 
-const IntroSection = styled(View)`
-  padding: 24px 16px 8px 16px;
-`;
-
-const IntroHeading = styled.Text`
-  font-size: 22px;
-  font-weight: 700;
-  color: ${PLAN_PRIMARY_COLOR};
-`;
-
-const IntroSubheading = styled.Text`
-  font-size: 14px;
-  color: ${({ theme }) => theme.colors.gray800};
-  margin-top: 8px;
-  line-height: 20px;
-`;
-
 const DayCard = styled(View)`
   background-color: #ffffff;
   margin: 12px 16px 0 16px;
   border-radius: 20px;
   padding: 16px;
-  shadow-color: ${PLAN_PRIMARY_COLOR};
-  shadow-opacity: 0.12;
-  shadow-radius: 12px;
-  shadow-offset: 0px 4px;
-  elevation: 3;
+  border-width: 1px;
+  border-color: #e5e7eb;
   border-left-width: 4px;
   border-left-color: ${PLAN_PRIMARY_COLOR};
+  shadow-color: ${PLAN_PRIMARY_COLOR};
+  shadow-opacity: 0.08;
+  shadow-radius: 10px;
+  shadow-offset: 0px 2px;
+  elevation: 2;
 `;
 
 const DayHeader = styled(View)`

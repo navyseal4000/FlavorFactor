@@ -28,7 +28,7 @@ export function PlanTabsScreen({ initialTab = 'weekly' }: PlanTabsScreenProps): 
   useEffect(() => {
     Animated.timing(animatedIndex, {
       toValue: PLAN_TAB_SEQUENCE.indexOf(activeTab),
-      duration: 1000,
+      duration: 500,
       useNativeDriver: true,
     }).start();
   }, [activeTab, animatedIndex]);

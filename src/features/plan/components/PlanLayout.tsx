@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { BottomNav } from '../../../components/navigation/BottomNav';
 
-import { PLAN_ACCENT_TINT, PLAN_BACKGROUND, PLAN_PRIMARY_COLOR, PlanTabKey } from '../constants';
+import { PLAN_ACCENT_TINT, PLAN_BACKGROUND, PlanTabKey } from '../constants';
 import { PlanTopTabs } from './PlanTopTabs';
 
 interface PlanLayoutProps {
@@ -41,19 +41,14 @@ const ScreenContainer = styled(View)`
 `;
 
 const Header = styled(View)`
-  background-color: ${PLAN_PRIMARY_COLOR};
+  background-color: #ffffff;
   padding-horizontal: 16px;
   padding-bottom: 12px;
   border-bottom-width: 1px;
-  border-color: ${PLAN_ACCENT_TINT};
+  border-color: #e5e7eb;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  shadow-color: ${PLAN_ACCENT_TINT};
-  shadow-opacity: 0.4;
-  shadow-radius: 12px;
-  shadow-offset: 0px 4px;
-  elevation: 4;
 `;
 
 const Spacer = styled(View)`
@@ -64,7 +59,7 @@ const Spacer = styled(View)`
 const HeaderTitle = styled.Text`
   font-size: 20px;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.white};
+  color: #111827;
 `;
 
 const Content = styled(View)`

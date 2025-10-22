@@ -3,7 +3,7 @@ import { Animated, LayoutChangeEvent, Pressable, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import styled from 'styled-components/native';
 
-import { PLAN_ACCENT_TINT, PLAN_NAV_ROUTES, PLAN_PRIMARY_COLOR, PlanTabKey } from '../constants';
+import { PLAN_NAV_ROUTES, PlanTabKey } from '../constants';
 import { PLAN_TAB_SEQUENCE } from '../utils/carousel';
 
 interface PlanTopTabsProps {
@@ -99,11 +99,9 @@ const TabsContainer = styled(View)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: ${PLAN_ACCENT_TINT};
+  background-color: #e2e8f0;
   border-radius: 999px;
   padding: 6px;
-  border-width: 1px;
-  border-color: ${PLAN_PRIMARY_COLOR};
   overflow: hidden;
 `;
 
@@ -113,9 +111,9 @@ const Highlight = styled(Animated.View)`
   bottom: 6px;
   left: 6px;
   border-radius: 999px;
-  background-color: ${PLAN_PRIMARY_COLOR};
-  shadow-color: ${PLAN_PRIMARY_COLOR};
-  shadow-opacity: 0.25;
+  background-color: #ffffff;
+  shadow-color: #94a3b8;
+  shadow-opacity: 0.2;
   shadow-radius: 10px;
   shadow-offset: 0px 3px;
   elevation: 2;
@@ -131,5 +129,5 @@ const TabButton = styled(Pressable)`
 const TabLabel = styled.Text<{ $active: boolean }>`
   font-size: 14px;
   font-weight: ${({ $active }) => ($active ? '700' : '500')};
-  color: ${({ $active, theme }) => ($active ? theme.colors.white : theme.colors.primary)};
+  color: ${({ $active }) => ($active ? '#111827' : '#475569')};
 `;
