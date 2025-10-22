@@ -1,11 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import { createDesignScreen } from '@modules/design';
+import { CoachChatScreen } from '../../src/features/coach/screens/CoachChatScreen';
 
-export default createDesignScreen(
-  require('../../assets/design/coach/Coach Chat View.html'),
-  'Coach Chat View',
-  {
-    fallbackImage: require('../../assets/design/coach/Coach Chat View.png'),
-    description: 'Two-way communication with assigned coach.',
-  },
-);
+export default CoachChatScreen;
