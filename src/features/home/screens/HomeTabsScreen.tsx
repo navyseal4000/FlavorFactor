@@ -2,7 +2,8 @@ import { ReactElement, useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, useWindowDimensions, View } from 'react-native';
 import styled from 'styled-components/native';
 
-import { HOME_CAROUSEL_DURATION_MS, HOME_TAB_KEYS, HomeTabKey } from '../constants';
+import { CarouselIndicators } from '../../../components/navigation/CarouselIndicators';
+import { HOME_CAROUSEL_DURATION_MS, HOME_TAB_KEYS, HOME_TAB_LABELS, HomeTabKey } from '../constants';
 import { triggerHomeSelection } from '../haptics';
 import { HomeLayout } from '../components/HomeLayout';
 import { HomeDashboardPage } from '../pages/HomeDashboardPage';
@@ -41,6 +42,9 @@ export function HomeTabsScreen({ initialTab = 'dashboard' }: HomeTabsScreenProps
     setActiveTab(tab);
   }
 
+  const activeIndex = TAB_SEQUENCE.indexOf(activeTab);
+  const indicatorLabels = TAB_SEQUENCE.map((tab) => HOME_TAB_LABELS[tab]);
+
   return (
     <HomeLayout activeTab={activeTab} onSelectTab={handleSelect}>
       <CarouselFrame>
@@ -61,6 +65,14 @@ export function HomeTabsScreen({ initialTab = 'dashboard' }: HomeTabsScreenProps
           </PageContainer>
         </AnimatedPages>
       </CarouselFrame>
+      <IndicatorsWrapper>
+        <CarouselIndicators
+          count={TAB_SEQUENCE.length}
+          activeIndex={activeIndex}
+          labels={indicatorLabels}
+          onSelect={(index) => handleSelect(TAB_SEQUENCE[index])}
+        />
+      </IndicatorsWrapper>
     </HomeLayout>
   );
 }
@@ -77,6 +89,10 @@ const AnimatedPages = styled(Animated.View)`
 
 const PageContainer = styled(View)`
   height: 100%;
+`;
+
+const IndicatorsWrapper = styled(View)`
+  padding: 12px 0 20px;
 `;
 
 export default HomeTabsScreen;

@@ -49,6 +49,14 @@ export const borderColors = {
   strong: palette.neutral[300],
 } as const;
 
+export const segmentedControl = {
+  track: palette.neutral[200],
+  thumb: palette.neutral[0],
+  shadow: withOpacity(palette.neutral[400], 0.25),
+  activeText: palette.neutral[900],
+  inactiveText: palette.neutral[500],
+} as const;
+
 export function withOpacity(hex: string, alpha: number): string {
   const normalized = hex.replace('#', '');
   const expanded =

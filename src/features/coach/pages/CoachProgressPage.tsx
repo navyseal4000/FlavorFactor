@@ -2,6 +2,7 @@ import { ReactElement, useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, Pressable, ScrollView, useWindowDimensions, View } from 'react-native';
 import styled from 'styled-components/native';
 
+import { CarouselIndicators } from '../../../components/navigation/CarouselIndicators';
 import {
   coachActionItems,
   coachFocusAreas,
@@ -48,6 +49,9 @@ export function CoachProgressPage(): ReactElement {
       setActiveSection(section);
     }
   }
+
+  const activeIndex = SECTION_SEQUENCE.indexOf(activeSection);
+  const indicatorLabels = SECTION_SEQUENCE.map((section) => SECTION_LABELS[section]);
 
   return (
     <Container>
@@ -143,6 +147,14 @@ export function CoachProgressPage(): ReactElement {
           </PageContainer>
         </AnimatedPages>
       </CarouselFrame>
+      <IndicatorsWrapper>
+        <CarouselIndicators
+          count={SECTION_SEQUENCE.length}
+          activeIndex={activeIndex}
+          labels={indicatorLabels}
+          onSelect={(index) => handleSelect(SECTION_SEQUENCE[index])}
+        />
+      </IndicatorsWrapper>
     </Container>
   );
 }
@@ -183,6 +195,10 @@ const AnimatedPages = styled(Animated.View)`
 
 const PageContainer = styled(View)`
   height: 100%;
+`;
+
+const IndicatorsWrapper = styled(View)`
+  padding: 12px 0 20px;
 `;
 
 const HighlightsGrid = styled(View)`

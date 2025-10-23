@@ -3,7 +3,7 @@ import { Animated, LayoutChangeEvent, Pressable, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import styled from 'styled-components/native';
 
-import { palette, textColors, withOpacity } from '../../../styles/palette';
+import { segmentedControl } from '../../../styles/palette';
 import { LOG_NAV_ROUTES, LogTabKey } from '../constants';
 
 interface LogTopTabsProps {
@@ -18,6 +18,24 @@ const TAB_LABELS: Record<LogTabKey, string> = {
 };
 
 const TAB_SEQUENCE: LogTabKey[] = ['food', 'weight', 'activity'];
+
+const TAB_ACCENTS: Record<LogTabKey, { background: string; text: string; shadow: string }> = {
+  food: {
+    background: segmentedControl.thumb,
+    text: segmentedControl.activeText,
+    shadow: segmentedControl.shadow,
+  },
+  weight: {
+    background: segmentedControl.thumb,
+    text: segmentedControl.activeText,
+    shadow: segmentedControl.shadow,
+  },
+  activity: {
+    background: segmentedControl.thumb,
+    text: segmentedControl.activeText,
+    shadow: segmentedControl.shadow,
+  },
+};
 
 export function LogTopTabs({ activeTab, onSelect }: LogTopTabsProps): ReactElement {
   const router = useRouter();
@@ -64,20 +82,33 @@ export function LogTopTabs({ activeTab, onSelect }: LogTopTabsProps): ReactEleme
             style={{
               transform: [{ translateX }],
               width: segmentWidth,
+              backgroundColor: TAB_ACCENTS[activeTab].background,
+              shadowColor: TAB_ACCENTS[activeTab].shadow,
             }}
           />
         )}
         {TAB_SEQUENCE.map((tabKey) => {
           const label = TAB_LABELS[tabKey];
           const isActive = tabKey === activeTab;
+          const accent = TAB_ACCENTS[tabKey];
           return (
             <TabButton
               key={tabKey}
               onPress={() => handleSelect(tabKey)}
               accessibilityRole="tab"
               accessibilityState={{ selected: isActive }}
+              accessibilityLabel={`${label} tab`}
+              accessibilityHint={
+                isActive ? `${label} is active` : `Switch to the ${label.toLowerCase()} log`
+              }
             >
-              <TabLabel $active={isActive}>{label}</TabLabel>
+              <TabLabel
+                style={{
+                  color: isActive ? accent.text : segmentedControl.inactiveText,
+                }}
+              >
+                {label}
+              </TabLabel>
             </TabButton>
           );
         })}
@@ -96,7 +127,7 @@ const TabsContainer = styled(View)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: ${withOpacity(palette.brand.lime500, 0.12)};
+  background-color: ${segmentedControl.track};
   border-radius: 999px;
   padding: 6px;
 `;
@@ -107,12 +138,11 @@ const Highlight = styled(Animated.View)`
   bottom: 6px;
   left: 6px;
   border-radius: 999px;
-  background-color: ${palette.brand.lime500};
-  shadow-color: ${withOpacity(palette.brand.lime500, 0.45)};
-  shadow-opacity: 0.35;
-  shadow-radius: 8px;
-  shadow-offset: 0px 2px;
-  elevation: 1;
+  background-color: transparent;
+  shadow-opacity: 1;
+  shadow-radius: 10px;
+  shadow-offset: 0px 3px;
+  elevation: 2;
 `;
 
 const TabButton = styled(Pressable)`
@@ -122,9 +152,8 @@ const TabButton = styled(Pressable)`
   justify-content: center;
 `;
 
-const TabLabel = styled.Text<{ $active: boolean }>`
+const TabLabel = styled.Text`
   font-size: 14px;
-  font-weight: ${({ $active }) => ($active ? '700' : '500')};
-  color: ${({ $active }) => ($active ? textColors.inverse : textColors.primary)};
+  font-weight: 600;
 `;
 

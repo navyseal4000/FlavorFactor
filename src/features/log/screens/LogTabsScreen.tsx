@@ -2,6 +2,7 @@ import { ReactElement, useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, useWindowDimensions, View } from 'react-native';
 import styled from 'styled-components/native';
 
+import { CarouselIndicators } from '../../../components/navigation/CarouselIndicators';
 import { LogLayout } from '../components/LogLayout';
 import { LogTabKey } from '../constants';
 import { ActivityLogPage } from '../pages/ActivityLogPage';
@@ -9,6 +10,11 @@ import { FoodLogPage } from '../pages/FoodLogPage';
 import { WeightLogPage } from '../pages/WeightLogPage';
 
 const TAB_SEQUENCE: LogTabKey[] = ['food', 'weight', 'activity'];
+const TAB_LABELS: Record<LogTabKey, string> = {
+  food: 'Food',
+  weight: 'Weight',
+  activity: 'Activity',
+};
 
 interface LogTabsScreenProps {
   initialTab?: LogTabKey;
@@ -20,7 +26,6 @@ export function LogTabsScreen({ initialTab = 'food' }: LogTabsScreenProps): Reac
   const { width } = useWindowDimensions();
 
   const animatedIndex = useRef(new Animated.Value(TAB_SEQUENCE.indexOf(normalizedInitial))).current;
-
 
   useEffect(() => {
     Animated.timing(animatedIndex, {
@@ -43,6 +48,9 @@ export function LogTabsScreen({ initialTab = 'food' }: LogTabsScreenProps): Reac
     setActiveTab(tab);
   }
 
+  const activeIndex = TAB_SEQUENCE.indexOf(activeTab);
+  const indicatorLabels = TAB_SEQUENCE.map((tab) => TAB_LABELS[tab]);
+
   return (
     <LogLayout activeTab={activeTab} onSelectTab={handleSelect}>
       <CarouselFrame>
@@ -63,6 +71,14 @@ export function LogTabsScreen({ initialTab = 'food' }: LogTabsScreenProps): Reac
           </PageContainer>
         </AnimatedPages>
       </CarouselFrame>
+      <IndicatorsWrapper>
+        <CarouselIndicators
+          count={TAB_SEQUENCE.length}
+          activeIndex={activeIndex}
+          labels={indicatorLabels}
+          onSelect={(index) => handleSelect(TAB_SEQUENCE[index])}
+        />
+      </IndicatorsWrapper>
     </LogLayout>
   );
 }
@@ -81,3 +97,6 @@ const PageContainer = styled(View)`
   height: 100%;
 `;
 
+const IndicatorsWrapper = styled(View)`
+  padding: 12px 0 20px;
+`;

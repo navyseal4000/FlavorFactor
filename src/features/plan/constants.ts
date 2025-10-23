@@ -1,7 +1,7 @@
-import { palette, withOpacity } from '../../styles/palette';
+import { palette, surfaces, withOpacity } from '../../styles/palette';
 
 export const PLAN_PRIMARY_COLOR = palette.brand.lime500;
-export const PLAN_BACKGROUND = withOpacity(palette.brand.lime500, 0.08);
+export const PLAN_BACKGROUND = surfaces.base;
 export const PLAN_ACCENT_TINT = withOpacity(palette.brand.lime500, 0.16);
 export const PLAN_ALERT_TINT = withOpacity(palette.semantic.danger, 0.16);
 

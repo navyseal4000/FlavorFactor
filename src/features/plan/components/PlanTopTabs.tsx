@@ -3,6 +3,7 @@ import { Animated, LayoutChangeEvent, Pressable, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import styled from 'styled-components/native';
 
+import { segmentedControl } from '../../../styles/palette';
 import { PLAN_NAV_ROUTES, PlanTabKey } from '../constants';
 import { PLAN_TAB_SEQUENCE } from '../utils/carousel';
 
@@ -11,7 +12,7 @@ interface PlanTopTabsProps {
   onSelect?: (tab: PlanTabKey) => void;
 }
 
-const TAB_LABELS: Record<PlanTabKey, string> = {
+export const PLAN_TAB_LABELS: Record<PlanTabKey, string> = {
   weekly: 'Weekly',
   daily: 'Daily',
   pantry: 'Pantry',
@@ -71,7 +72,7 @@ export function PlanTopTabs({ activeTab, onSelect }: PlanTopTabsProps): ReactEle
           />
         )}
         {PLAN_TAB_SEQUENCE.map((tabKey) => {
-          const label = TAB_LABELS[tabKey];
+          const label = PLAN_TAB_LABELS[tabKey];
           const isActive = tabKey === activeTab;
           return (
             <TabButton
@@ -99,7 +100,7 @@ const TabsContainer = styled(View)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #e2e8f0;
+  background-color: ${segmentedControl.track};
   border-radius: 999px;
   padding: 6px;
   overflow: hidden;
@@ -111,9 +112,9 @@ const Highlight = styled(Animated.View)`
   bottom: 6px;
   left: 6px;
   border-radius: 999px;
-  background-color: #ffffff;
-  shadow-color: #94a3b8;
-  shadow-opacity: 0.2;
+  background-color: ${segmentedControl.thumb};
+  shadow-color: ${segmentedControl.shadow};
+  shadow-opacity: 1;
   shadow-radius: 10px;
   shadow-offset: 0px 3px;
   elevation: 2;
@@ -129,6 +130,7 @@ const TabButton = styled(Pressable)`
 const TabLabel = styled.Text<{ $active: boolean }>`
   font-size: 14px;
   font-weight: ${({ $active }) => ($active ? '700' : '500')};
-  color: ${({ $active }) => ($active ? '#111827' : '#475569')};
+  color: ${({ $active }) =>
+    $active ? segmentedControl.activeText : segmentedControl.inactiveText};
 `;
 export default PlanTopTabs;

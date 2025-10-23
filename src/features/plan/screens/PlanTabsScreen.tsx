@@ -2,8 +2,10 @@ import { ReactElement, useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, useWindowDimensions, View } from 'react-native';
 import styled from 'styled-components/native';
 
+import { CarouselIndicators } from '../../../components/navigation/CarouselIndicators';
 import { PlanLayout } from '../components/PlanLayout';
 import { PlanTabKey } from '../constants';
+import { PLAN_TAB_LABELS } from '../components/PlanTopTabs';
 import { CartReviewPage } from '../pages/CartReviewPage';
 import { DailyPlanPage } from '../pages/DailyPlanPage';
 import { PantryPage } from '../pages/PantryPage';
@@ -46,6 +48,9 @@ export function PlanTabsScreen({ initialTab = 'weekly' }: PlanTabsScreenProps): 
     setActiveTab(tab);
   }
 
+  const activeIndex = PLAN_TAB_SEQUENCE.indexOf(activeTab);
+  const indicatorLabels = PLAN_TAB_SEQUENCE.map((tab) => PLAN_TAB_LABELS[tab]);
+
   return (
     <PlanLayout activeTab={activeTab} onSelectTab={handleSelect}>
       <CarouselFrame>
@@ -69,6 +74,14 @@ export function PlanTabsScreen({ initialTab = 'weekly' }: PlanTabsScreenProps): 
           </PageContainer>
         </AnimatedPages>
       </CarouselFrame>
+      <IndicatorsWrapper>
+        <CarouselIndicators
+          count={PLAN_TAB_SEQUENCE.length}
+          activeIndex={activeIndex}
+          labels={indicatorLabels}
+          onSelect={(index) => handleSelect(PLAN_TAB_SEQUENCE[index])}
+        />
+      </IndicatorsWrapper>
     </PlanLayout>
   );
 }
@@ -85,4 +98,8 @@ const AnimatedPages = styled(Animated.View)`
 
 const PageContainer = styled(View)`
   height: 100%;
+`;
+
+const IndicatorsWrapper = styled(View)`
+  padding: 10px 0 20px;
 `;

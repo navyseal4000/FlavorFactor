@@ -1,4 +1,6 @@
-export const PROFILE_BACKGROUND = '#f3f4f6';
+import { surfaces } from '../../styles/palette';
+
+export const PROFILE_BACKGROUND = surfaces.base;
 export const PROFILE_HEADER_BACKGROUND = '#ffffff';
 export const PROFILE_CARD_BACKGROUND = '#ffffff';
 export const PROFILE_BORDER_COLOR = '#e5e7eb';

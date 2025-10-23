@@ -67,6 +67,21 @@ const profileInfoSections: ProfileSection[] = [
       },
     ],
   },
+  {
+    id: 'profile-appearance',
+    title: 'Appearance',
+    description: 'Personalise how FlavorFactor looks on this device.',
+    items: [
+      {
+        id: 'dark-mode',
+        type: 'toggle',
+        title: 'Dark mode',
+        description: 'Switch between light and dark themes across the app.',
+        toggleValue: false,
+        icon: createIcon('dark-mode'),
+      },
+    ],
+  },
 ];
 
 const profileSecuritySections: ProfileSection[] = [
@@ -120,6 +135,28 @@ const profileSecuritySections: ProfileSection[] = [
         description: 'Digest of security events and active sessions.',
         toggleValue: false,
         icon: createIcon('rule-folder'),
+      },
+    ],
+  },
+  {
+    id: 'security-critical-actions',
+    title: 'Critical actions',
+    description: 'Permanent changes require confirmation and may impact your data access.',
+    items: [
+      {
+        id: 'delete-warning',
+        type: 'info',
+        title: 'Deleting your account removes all history',
+        description: 'Logs, analytics, and support conversations are purged after a 30-day grace period.',
+        icon: createIcon('warning-amber'),
+      },
+      {
+        id: 'delete-shortcut',
+        type: 'navigation',
+        title: 'Delete account',
+        description: 'Review the safeguards and start a deletion request with support.',
+        meta: 'Review steps',
+        icon: createIcon('delete-forever'),
       },
     ],
   },
@@ -628,6 +665,13 @@ const deleteAccountSections: ProfileSection[] = [
         title: 'Before you delete',
         description: 'Download a copy of your data and settle outstanding coaching sessions.',
         icon: createIcon('fact-check'),
+      },
+      {
+        id: 'delete-timeline',
+        type: 'info',
+        title: 'Grace period',
+        description: 'We queue deletion for 30 days. You can change your mind before the window closes.',
+        icon: createIcon('schedule'),
       },
       {
         id: 'delete-contact',

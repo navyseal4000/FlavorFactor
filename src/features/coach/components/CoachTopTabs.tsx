@@ -3,7 +3,7 @@ import { Animated, LayoutChangeEvent, Pressable, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import styled from 'styled-components/native';
 
-import { palette, textColors, withOpacity } from '../../../styles/palette';
+import { segmentedControl } from '../../../styles/palette';
 import { COACH_NAV_ROUTES, CoachTabKey } from '../constants';
 
 interface CoachTopTabsProps {
@@ -99,7 +99,7 @@ const TabsContainer = styled(View)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: ${withOpacity(palette.brand.teal400, 0.18)};
+  background-color: ${segmentedControl.track};
   border-radius: 999px;
   padding: 6px;
 `;
@@ -110,12 +110,12 @@ const Highlight = styled(Animated.View)`
   bottom: 6px;
   left: 6px;
   border-radius: 999px;
-  background-color: ${palette.brand.teal400};
-  shadow-color: ${withOpacity(palette.brand.teal400, 0.4)};
-  shadow-opacity: 0.3;
-  shadow-radius: 8px;
-  shadow-offset: 0px 2px;
-  elevation: 1;
+  background-color: ${segmentedControl.thumb};
+  shadow-color: ${segmentedControl.shadow};
+  shadow-opacity: 1;
+  shadow-radius: 10px;
+  shadow-offset: 0px 3px;
+  elevation: 2;
 `;
 
 const TabButton = styled(Pressable)`
@@ -128,5 +128,6 @@ const TabButton = styled(Pressable)`
 const TabLabel = styled.Text<{ $active: boolean }>`
   font-size: 14px;
   font-weight: ${({ $active }) => ($active ? '700' : '500')};
-  color: ${({ $active }) => ($active ? textColors.inverse : textColors.primary)};
+  color: ${({ $active }) =>
+    $active ? segmentedControl.activeText : segmentedControl.inactiveText};
 `;

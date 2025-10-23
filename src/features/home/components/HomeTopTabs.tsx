@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 
 import { HOME_CAROUSEL_DURATION_MS, HOME_TAB_KEYS, HOME_TAB_LABELS, HomeTabKey } from '../constants';
 import { triggerHomeSelection } from '../haptics';
+import { segmentedControl } from '../../../styles/palette';
 
 interface HomeTopTabsProps {
   activeTab: HomeTabKey;
@@ -81,7 +82,7 @@ const TabsContainer = styled(View)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #e2e8f0;
+  background-color: ${segmentedControl.track};
   border-radius: 999px;
   padding: 6px;
 `;
@@ -92,9 +93,9 @@ const Highlight = styled(Animated.View)`
   bottom: 6px;
   left: 6px;
   border-radius: 999px;
-  background-color: #ffffff;
-  shadow-color: #94a3b8;
-  shadow-opacity: 0.2;
+  background-color: ${segmentedControl.thumb};
+  shadow-color: ${segmentedControl.shadow};
+  shadow-opacity: 1;
   shadow-radius: 10px;
   shadow-offset: 0px 4px;
   elevation: 2;
@@ -110,6 +111,7 @@ const TabButton = styled(Pressable)`
 const TabLabel = styled.Text<{ $active: boolean }>`
   font-size: 14px;
   font-weight: ${({ $active }) => ($active ? '700' : '500')};
-  color: ${({ $active }) => ($active ? '#1f2937' : '#64748b')};
+  color: ${({ $active }) =>
+    $active ? segmentedControl.activeText : segmentedControl.inactiveText};
 `;
 export default HomeTopTabs;

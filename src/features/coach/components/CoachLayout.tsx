@@ -31,7 +31,7 @@ export function CoachLayout({
   return (
     <ScreenContainer style={{ paddingTop: Math.max(top, 12) }}>
       <Header>
-        <HeaderTitle accessibilityRole="header">Coach</HeaderTitle>
+        <HeaderTitle accessibilityRole="header">Support</HeaderTitle>
         <HeaderAction
           accessibilityRole="button"
           accessibilityLabel="View coaching notes"
