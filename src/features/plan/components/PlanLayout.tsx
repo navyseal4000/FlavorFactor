@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { BottomNav } from '../../../components/navigation/BottomNav';
 
-import { PLAN_ACCENT_TINT, PLAN_BACKGROUND, PlanTabKey } from '../constants';
+import { PLAN_BACKGROUND, PlanTabKey } from '../constants';
 import { PlanTopTabs } from './PlanTopTabs';
 
 interface PlanLayoutProps {

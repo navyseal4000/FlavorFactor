@@ -32,7 +32,7 @@ export function PlanTopTabs({ activeTab, onSelect }: PlanTopTabsProps): ReactEle
   useEffect(() => {
     Animated.timing(animatedValue, {
       toValue: PLAN_TAB_SEQUENCE.indexOf(activeTab),
-      duration: 1000,
+      duration: 500,
       useNativeDriver: true,
     }).start();
   }, [activeTab, animatedValue]);
@@ -131,3 +131,4 @@ const TabLabel = styled.Text<{ $active: boolean }>`
   font-weight: ${({ $active }) => ($active ? '700' : '500')};
   color: ${({ $active }) => ($active ? '#111827' : '#475569')};
 `;
+export default PlanTopTabs;

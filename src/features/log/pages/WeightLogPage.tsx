@@ -55,7 +55,7 @@ export function WeightLogPage(): ReactElement {
   useEffect(() => {
     Animated.timing(animatedIndex, {
       toValue: OPTIONS.findIndex((option) => option.value === timeframe),
-      duration: 1000,
+      duration: 500,
       useNativeDriver: true,
     }).start();
   }, [animatedIndex, timeframe]);

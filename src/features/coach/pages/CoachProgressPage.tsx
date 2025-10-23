@@ -29,7 +29,7 @@ export function CoachProgressPage(): ReactElement {
   useEffect(() => {
     Animated.timing(animatedIndex, {
       toValue: SECTION_SEQUENCE.indexOf(activeSection),
-      duration: 1000,
+      duration: 500,
       useNativeDriver: true,
     }).start();
   }, [activeSection, animatedIndex]);

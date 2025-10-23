@@ -5,6 +5,8 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
 
+import { palette, textColors } from '../../styles/palette';
+
 type NavKey = 'home' | 'plan' | 'log' | 'coach' | 'profile';
 
 export interface BottomNavItem {
@@ -57,7 +59,7 @@ export function BottomNav({ items = DEFAULT_ITEMS, activeKey }: BottomNavProps):
               <MaterialIcons
                 name={item.icon}
                 size={24}
-                color={isActive ? '#a4ec13' : '#6b7280'}
+                color={isActive ? palette.brand.lime500 : textColors.secondary}
                 style={{ marginBottom: 4 }}
               />
               <Label $active={isActive}>{item.label}</Label>
@@ -93,6 +95,6 @@ const NavItem = styled(Pressable)`
 const Label = styled.Text<{ $active: boolean }>`
   font-size: 12px;
   font-weight: ${({ $active }) => ($active ? '600' : '500')};
-  color: ${({ $active }) => ($active ? '#111827' : '#6b7280')};
+  color: ${({ $active }) => ($active ? textColors.primary : textColors.secondary)};
 `;
 

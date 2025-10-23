@@ -1,16 +1,27 @@
-const theme = {
-  colors: {
-    primary: '#a4ec13',
-    primaryHover: '#31B2DB',
-    primaryLight: '#A6DEEF',
-    black: '#1D191F',
-    gray: '#CCCCCC',
-    gray800: '#808080',
-    white: '#FFFFFF',
-    orange: '#F6662B',
-    red: '#EB3456',
-  },
+import { borderColors, palette, surfaces, textColors, withOpacity } from './palette';
 
+const theme = {
+  palette,
+  colors: {
+    primary: palette.brand.lime500,
+    primaryHover: palette.brand.lime600,
+    primaryLight: withOpacity(palette.brand.teal400, 0.3),
+    brandSecondary: palette.brand.teal400,
+    textPrimary: textColors.primary,
+    textSecondary: textColors.secondary,
+    textMuted: textColors.muted,
+    textInverse: textColors.inverse,
+    black: palette.neutral[900],
+    gray: palette.neutral[400],
+    gray800: palette.neutral[500],
+    white: palette.neutral[0],
+    orange: palette.accent.orange,
+    red: palette.semantic.danger,
+    borderSubtle: borderColors.subtle,
+    borderStrong: borderColors.strong,
+    surfaceBase: surfaces.base,
+    surfaceCard: surfaces.card,
+  },
   ui: {
     borderRadius: {
       card: '32px',
@@ -22,4 +33,6 @@ const theme = {
   },
 } as const;
 
+export type AppTheme = typeof theme;
 export default theme;
+

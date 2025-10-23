@@ -1,5 +1,7 @@
-export const LOG_PRIMARY_COLOR = '#a4ec13';
-export const LOG_BACKGROUND = '#f7f8f5';
+import { palette, surfaces } from '../../styles/palette';
+
+export const LOG_PRIMARY_COLOR = palette.brand.lime500;
+export const LOG_BACKGROUND = surfaces.base;
 
 export const LOG_NAV_ROUTES = {
   food: '/log',

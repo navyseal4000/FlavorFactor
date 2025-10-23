@@ -1,5 +1,7 @@
-export const HOME_PRIMARY_COLOR = '#61c4e3';
-export const HOME_BACKGROUND = '#f7fafc';
+import { palette, surfaces } from '../../styles/palette';
+
+export const HOME_PRIMARY_COLOR = palette.brand.teal400;
+export const HOME_BACKGROUND = surfaces.base;
 
 export const HOME_TAB_KEYS = ['dashboard', 'actions', 'insights'] as const;
 

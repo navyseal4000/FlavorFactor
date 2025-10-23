@@ -25,7 +25,7 @@ export function LogTabsScreen({ initialTab = 'food' }: LogTabsScreenProps): Reac
   useEffect(() => {
     Animated.timing(animatedIndex, {
       toValue: TAB_SEQUENCE.indexOf(activeTab),
-      duration: 1000,
+      duration: 500,
       useNativeDriver: true,
     }).start();
   }, [activeTab, animatedIndex]);

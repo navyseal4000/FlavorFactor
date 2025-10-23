@@ -3,6 +3,7 @@ import { Animated, LayoutChangeEvent, Pressable, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import styled from 'styled-components/native';
 
+import { palette, textColors, withOpacity } from '../../../styles/palette';
 import { COACH_NAV_ROUTES, CoachTabKey } from '../constants';
 
 interface CoachTopTabsProps {
@@ -33,7 +34,7 @@ export function CoachTopTabs({ activeTab, onSelect }: CoachTopTabsProps): ReactE
     const targetIndex = TAB_SEQUENCE.indexOf(activeTab);
     Animated.timing(animatedValue, {
       toValue: targetIndex,
-      duration: 1000,
+      duration: 500,
       useNativeDriver: true,
     }).start();
   }, [activeTab, animatedValue]);
@@ -98,7 +99,7 @@ const TabsContainer = styled(View)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #eef2f7;
+  background-color: ${withOpacity(palette.brand.teal400, 0.18)};
   border-radius: 999px;
   padding: 6px;
 `;
@@ -109,9 +110,9 @@ const Highlight = styled(Animated.View)`
   bottom: 6px;
   left: 6px;
   border-radius: 999px;
-  background-color: #ffffff;
-  shadow-color: #94a3b8;
-  shadow-opacity: 0.15;
+  background-color: ${palette.brand.teal400};
+  shadow-color: ${withOpacity(palette.brand.teal400, 0.4)};
+  shadow-opacity: 0.3;
   shadow-radius: 8px;
   shadow-offset: 0px 2px;
   elevation: 1;
@@ -127,5 +128,5 @@ const TabButton = styled(Pressable)`
 const TabLabel = styled.Text<{ $active: boolean }>`
   font-size: 14px;
   font-weight: ${({ $active }) => ($active ? '700' : '500')};
-  color: ${({ $active }) => ($active ? '#111827' : '#6b7280')};
+  color: ${({ $active }) => ($active ? textColors.inverse : textColors.primary)};
 `;

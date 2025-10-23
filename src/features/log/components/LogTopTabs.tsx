@@ -3,6 +3,7 @@ import { Animated, LayoutChangeEvent, Pressable, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import styled from 'styled-components/native';
 
+import { palette, textColors, withOpacity } from '../../../styles/palette';
 import { LOG_NAV_ROUTES, LogTabKey } from '../constants';
 
 interface LogTopTabsProps {
@@ -29,7 +30,7 @@ export function LogTopTabs({ activeTab, onSelect }: LogTopTabsProps): ReactEleme
     const targetIndex = TAB_SEQUENCE.indexOf(activeTab);
     Animated.timing(animatedValue, {
       toValue: targetIndex,
-      duration: 1000,
+      duration: 500,
       useNativeDriver: true,
     }).start();
   }, [activeTab, animatedValue]);
@@ -95,7 +96,7 @@ const TabsContainer = styled(View)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #eef2f7;
+  background-color: ${withOpacity(palette.brand.lime500, 0.12)};
   border-radius: 999px;
   padding: 6px;
 `;
@@ -106,9 +107,9 @@ const Highlight = styled(Animated.View)`
   bottom: 6px;
   left: 6px;
   border-radius: 999px;
-  background-color: #ffffff;
-  shadow-color: #94a3b8;
-  shadow-opacity: 0.15;
+  background-color: ${palette.brand.lime500};
+  shadow-color: ${withOpacity(palette.brand.lime500, 0.45)};
+  shadow-opacity: 0.35;
   shadow-radius: 8px;
   shadow-offset: 0px 2px;
   elevation: 1;
@@ -124,6 +125,6 @@ const TabButton = styled(Pressable)`
 const TabLabel = styled.Text<{ $active: boolean }>`
   font-size: 14px;
   font-weight: ${({ $active }) => ($active ? '700' : '500')};
-  color: ${({ $active }) => ($active ? '#111827' : '#6b7280')};
+  color: ${({ $active }) => ($active ? textColors.inverse : textColors.primary)};
 `;
 
